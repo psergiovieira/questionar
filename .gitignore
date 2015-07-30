@@ -3,4 +3,10 @@ packages/
 Questionar/packages/
 Questionar/ApiQuestionar/bin/
 Questionar/ApiQuestionar/obj/
+Questionar/Domain/bin/
+Questionar/Domain/obj/
+Questionar/Infraestructure/bin/
+Questionar/Infraestructure/obj/
+Questionar/UnitTestDomain/bin/
+Questionar/UnitTestDomain/obj/
 *.user
