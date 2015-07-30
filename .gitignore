@@ -1,6 +1,6 @@
 packages/
 *.suo
-ApiQuestionar/packages/
-ApiQuestionar/ApiQuestionar/bin/
-ApiQuestionar/ApiQuestionar/obj/
+Questionar/packages/
+Questionar/ApiQuestionar/bin/
+Questionar/ApiQuestionar/obj/
 *.user
