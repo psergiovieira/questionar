@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infraestructure
+namespace Infraestructure.UnitOfWork
 {
-    public class Class1
+    public interface IUnitOfWork
     {
+        void BeginTransaction();
+        void Commit();
     }
 }
