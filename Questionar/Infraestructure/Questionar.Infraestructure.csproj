@@ -52,6 +52,7 @@
     <Compile Include="Types\ICreatedDate.cs" />
     <Compile Include="Types\IIdentity.cs" />
     <Compile Include="Types\ILogicalDelete.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\NhibernateUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

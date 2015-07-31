@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace Domain.Manager
 {
-    public class Exemplo : IIdentity
+    public class Example : IIdentity
     {
         public int Id { get; set; }
     }
 
-    public class ExemploManager
+    public class ExampleManager
     {
-        private IRepository<Exemplo> _repository;
+        private IRepository<Example> _repository;
 
-        public ExemploManager(IRepository<Exemplo> exemplo) 
+        public ExampleManager(IRepository<Example> example) 
         {
         }
 
         public void Create()
-        {
-            _repository.Create(new Exemplo());
+        {            
+            _repository.Create(new Example());
         }
     }
 }

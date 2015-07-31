@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,8 +95,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Questionar.Domain.csproj">
+      <Project>{f8dc4670-6ecf-4262-af77-211eb12a612c}</Project>
+      <Name>Questionar.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infraestructure\Questionar.Infraestructure.csproj">
+      <Project>{808bc922-934b-4351-85b3-31f04223b92f}</Project>
+      <Name>Questionar.Infraestructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
