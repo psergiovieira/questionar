@@ -1,5 +1,7 @@
 ﻿using Infraestructure;
+using Infraestructure.Business;
 using Infraestructure.Types;
+using Infraestructure.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +15,20 @@ namespace Domain.Manager
         public int Id { get; set; }
     }
 
-    public class ExampleManager
+    public class ExampleManager : Business<Example>
     {
-        private IRepository<Example> _repository;
 
-        public ExampleManager(IRepository<Example> example) 
+        public ExampleManager(IRepository<Example> example, IUnitOfWork unitOfWork)
+            : base(example, unitOfWork)
         {
         }
 
         public void Create()
-        {            
-            _repository.Create(new Example());
+        {
+            Transaction(() =>
+                {
+                    Repository.Create(new Example());
+                });
         }
     }
 }

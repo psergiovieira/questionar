@@ -11,14 +11,15 @@ namespace ApiQuestionar.Controllers
     public class ExampleController : BaseController<Example>
     {
         private ExampleManager _manager;
+        public ExampleController()
+        {
+            _manager = new ExampleManager(Repository, UnitOfWork); 
+        }
 
         public IHttpActionResult Put()
         {
-            //TODO: fazer conexao com o bd
-            //TODO: adicionar transaction(unit of work with filter attribute)
+            //TODO: fazer conexao com o bd            
             //TODO: usar injeção de dependencias para instanciar IUnitOfWork e IRepoitory            
-            _manager = new ExampleManager(Repository);
-
             return Ok();
         }
     }

@@ -50,5 +50,11 @@ namespace Infraestructure.UnitOfWork
                 Session.Close();
             }
         }
+
+        public void Rollback()
+        {
+            if (_transaction != null)
+                _transaction.Rollback();
+        }
     }
 }
