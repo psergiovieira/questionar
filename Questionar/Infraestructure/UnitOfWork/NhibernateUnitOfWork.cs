@@ -1,4 +1,5 @@
 ﻿using NHibernate;
+using NHibernate.Cfg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,9 @@ namespace Infraestructure.UnitOfWork
 
         static NhibernateUnitOfWork()
         {
-            //_sessionFactory = Fluently.Configure()
-            //    .Database(MsSqlConfiguration.MsSql2008.ConnectionString(x => x.FromConnectionStringWithKey("UnitOfWorkExample")))
-            //    .Mappings(x => x.AutoMappings.Add(
-            //        AutoMap.AssemblyOf<Product>(new AutomappingConfiguration()).UseOverridesFromAssemblyOf<ProductOverrides>()))
-            //    .ExposeConfiguration(config => new SchemaUpdate(config).Execute(false, true))
-            //    .BuildSessionFactory();
+            var configuration = new Configuration();
+            configuration.Configure();
+            _sessionFactory = configuration.BuildSessionFactory();
         }
 
         public NhibernateUnitOfWork()

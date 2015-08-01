@@ -16,7 +16,8 @@ namespace ApiQuestionar.Controllers
             _manager = new ExampleManager(Repository, UnitOfWork); 
         }
 
-        public IHttpActionResult Put()
+        [HttpGet]
+        public IHttpActionResult Get()
         {
             //TODO: fazer conexao com o bd            
             //TODO: usar injeção de dependencias para instanciar IUnitOfWork e IRepoitory            

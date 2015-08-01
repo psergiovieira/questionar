@@ -9,4 +9,6 @@ Questionar/Infraestructure/bin/
 Questionar/Infraestructure/obj/
 Questionar/UnitTestDomain/bin/
 Questionar/UnitTestDomain/obj/
+Questionar/Data/bin/
+Questionar/Data/obj/
 *.user

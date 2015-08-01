@@ -16,7 +16,7 @@ namespace ApiQuestionar.Controllers
         private IUnitOfWork _unitOfWork;
 
         public BaseController() 
-        {
+        {             
             _unitOfWork = new NhibernateUnitOfWork();
             _repository = new NHibernateRepository<TEntity>(_unitOfWork);
         }
