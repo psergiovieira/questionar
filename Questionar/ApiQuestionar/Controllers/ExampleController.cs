@@ -18,9 +18,7 @@ namespace ApiQuestionar.Controllers
 
         [HttpGet]
         public IHttpActionResult Get()
-        {
-            //TODO: fazer conexao com o bd            
-            //TODO: usar injeção de dependencias para instanciar IUnitOfWork e IRepoitory            
+        {   
             return Ok();
         }
     }
