@@ -19,7 +19,7 @@ namespace ApiQuestionar.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {   
-            return Ok();
+            return Ok("teste");
         }
     }
 }

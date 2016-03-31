@@ -40,9 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manager\ExampleManager.cs" />
+    <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Questionar.Data.csproj">
+      <Project>{065cd14b-166a-4173-bcdf-114d362f9aee}</Project>
+      <Name>Questionar.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infraestructure\Questionar.Infraestructure.csproj">
       <Project>{808bc922-934b-4351-85b3-31f04223b92f}</Project>
       <Name>Questionar.Infraestructure</Name>
