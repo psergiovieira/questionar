@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js" ng-app="app"> <!--<![endif]-->
+<head>
+  <title>Homepage &middot; Questionar</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Google Font: Open Sans -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+  <!-- App CSS -->
+  <link href="./css/mvpready-landing.css" rel="stylesheet">
+  <link href="./css/mvpready-flat.css" rel="stylesheet">
+  <link href="./css/animate.css" rel="stylesheet">
+  <!-- <link href="./css/custom.css" rel="stylesheet">-->
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+<div id="wrapper">
+<header class="navbar navbar-inverse" role="banner">
+
+    <div class="container">
+
+      <div class="navbar-header">
+        <a href="./" class="navbar-brand navbar-brand-img">
+          <img src="./img/logo.png" alt="MVP Ready">
+        </a>
+        
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+      </div> <!-- /.navbar-header -->
+
+
+      <nav class="collapse navbar-collapse" role="navigation">
+
+        <ul class="nav navbar-nav navbar-right mainnav-menu">
+
+          <li class="active">
+            <a href="./index.html">Home</a>
+          </li>    
+
+          <li class="">
+            <a href="./page-features.html">Features</a>
+          </li>      
+
+          <li class="">
+            <a href="./page-faq.html">FAQ</a>
+          </li>
+
+          <li class="">
+            <a href="./page-pricing.html">Pricing</a>
+          </li>   
+
+          <li class="">
+            <a href="./page-contact.html">Contact</a>
+          </li> 
+          <li>
+            <a href="../admin/account-login-social.html">Login</a>
+          </li>    
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-social navbar-left">   
+
+          <li>
+            <a href="javascript:;" class="ui-tooltip" title="Facebook" data-placement="bottom">
+              <i class="fa fa-facebook"></i>
+              <span class="navbar-social-label">Facebook</span>
+            </a>
+          </li>   
+
+          <li>
+            <a href="javascript:;" class="ui-tooltip" title="Twitter" data-placement="bottom">
+              <i class="fa fa-twitter"></i>
+              <span class="navbar-social-label">Twitter</span>
+            </a>
+          </li>   
+
+          <li>
+            <a href="javascript:;" class="ui-tooltip" title="Google+" data-placement="bottom">
+              <i class="fa fa-google-plus"></i>
+              <span class="navbar-social-label">Google+</span>
+            </a>
+          </li>         
+
+        </ul>
+
+      </nav>
+
+    </div> <!-- /.container -->
+
+</header> 
+
+
+  <div ng-view></div>
+
+
+
+</div> <!-- /#wrapper -->
+<footer class="footer">
+
+  <div class="container">
+      
+      <div class="row">
+
+        <div class="col-sm-3">
+          <h4 class="content-title">
+            <span>MVP Ready</span>
+          </h4>        
+
+          Aliquam fringilla, sapien egetferas scelerisque placerat, lorem libero cursus lorem, sed sodales lorem libero eu sapien. Nunc mattis feugiat justo vel faucibus. Nulla consequat feugiat malesuada.
+        </div> <!-- /.col -->
+
+
+        <div class="col-sm-3">
+
+          <h4 class="content-title">
+            <span>Twitter Feed</span>
+          </h4>
+
+          <div id="tweets"></div>
+        </div> <!-- /.col -->
+
+
+        <div class="col-sm-3">
+
+          <h4 class="content-title">
+            <span>Stay Connected</span>
+          </h4>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, nam quae veniam optio sunt exercitationem.</p>
+
+          <br>
+
+          <ul class="footer-social-link">
+            <li>
+              <a href="javascript:;" class="ui-tooltip" title="Facebook" data-placement="bottom">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" class="ui-tooltip" title="Twitter" data-placement="bottom">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;" class="ui-tooltip" title="Google+" data-placement="bottom">
+                <i class="fa fa-google-plus"></i>
+              </a>
+            </li>
+          </ul>
+          
+        </div> <!-- /.col -->
+
+        
+        <div class="col-sm-3">
+            
+        <h4 class="content-title">
+          <span>Stay Updated</span>
+        </h4>
+
+        <p>Get emails about new theme launches &amp;  future updates.</p>
+
+        <form action="/" class="form">
+          
+          <div class="form-group">
+            <!-- <label>Email: <span class="required">*</span></label> -->
+            <input class="form-control" id="newsletter_email" name="newsletter_email" type="text" value="" required="" placeholder="Email Address">
+          </div> <!-- /.form-group -->
+
+          <div class="form-group">
+            <button class="btn btn-transparent">Subscribe Me</button>
+          </div> <!-- /.form-group -->
+
+        </form>
+
+      </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+  </div> <!-- /.container -->
+
+</footer>
+
+<footer class="copyright">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-12">
+        <p>Copyright &copy; 2013 MVP Ready.</p>
+      </div> <!-- /.col -->
+
+    </div> <!-- /.row -->
+    
+  </div>
+</footer>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./js/libs/jquery-1.10.2.min.js"></script>
+<script src="./js/libs/bootstrap.min.js"></script>
+
+<script src="./js/plugins/timeago/jquery.timeago.js"></script>
+<script src="./js/plugins/tweetable/tweetable.jquery.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="./js/libs/excanvas.compiled.js"></script>
+<![endif]-->
+
+
+<!-- Plugin JS -->
+<script src="./js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js"></script>
+
+  <!-- App JS -->
+<script src="./js/mvpready-core.js"></script>
+<script src="./js/mvpready-landing.js"></script>
+
+
+<!-- Angular JS -->
+angular
+<script src="./js/angular/angular.js"></script>
+<script src="./js/angular/angular-route.js"></script>
+
+<!-- App-->
+<script src="./js/app.js"></script>
+<script src="./js/controllers.js"></script>
+
+
+</body>
+</html>
