@@ -10,3 +10,5 @@ WITH (
   OIDS = FALSE
 )
 ;
+ALTER TABLE security.user_account
+  ADD COLUMN user_name text NOT NULL;

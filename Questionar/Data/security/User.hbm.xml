@@ -10,5 +10,6 @@
 		<property column="password" type="String" name="Password" not-null="true" length="11" />
 		<property column="created" type="DateTime" name="Created" not-null="true" />
 		<property column="email" type="String" name="Email" not-null="true" length="20" />
+    <property column="user_name" type="String" name="UserName" not-null="true" />
 	  </class>
 </hibernate-mapping>

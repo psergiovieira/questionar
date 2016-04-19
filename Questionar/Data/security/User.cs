@@ -31,6 +31,7 @@ namespace Data.Security
             get { return _password; }
             set { _password = value; }
         }
+
         private string _email;
 
         public virtual string Email
@@ -38,12 +39,20 @@ namespace Data.Security
             get { return _email; }
             set { _email = value; }
         }
+
         private DateTime _created;
 
         public virtual DateTime Created
         {
             get { return _created; }
             set { _created = value; }
+        }
+
+        private string _userName;
+        public virtual string UserName
+        {
+            get { return _userName; }
+            set { _userName = value; }
         }
 
         public User()
