@@ -1,0 +1,58 @@
+
+<div class="account-bg">
+<div class="account-wrapper">
+
+    <div class="account-body">
+
+      <h3>Cadastre-se grátis agora</h3>
+
+      <h5>Cadastre-se em apenas alguns segundos e comece a aprender já!</h5>
+
+      <form class="form account-form" name="account-form" ng-submit="save()">
+
+        <div class="form-group">
+          <label for="signup-email" class="placeholder-hidden">E-mail</label>
+          <input type="text" class="form-control" id="signup-email" placeholder="E-mail" tabindex="1" ng-model="user.email">
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <label for="signup-fullname" class="placeholder-hidden">Nome Completo</label>
+          <input type="text" class="form-control" id="signup-fullname" placeholder="Nome Completo" tabindex="2" ng-model="user.fullname">
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <label for="signup-username" class="placeholder-hidden">Nome de usuário</label>
+          <input type="text" class="form-control" id="signup-username" placeholder="Nome de usuário" tabindex="3" ng-model="user.username">
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <label for="login-password" class="placeholder-hidden">Senha</label>
+          <input type="password" class="form-control" id="login-password" placeholder="Senha" tabindex="4" ng-model="user.password">
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <label class="checkbox-inline">
+          <input type="checkbox" class="" value="" tabindex="5"> Eu concordo com os <a href="javascript:;" target="_blank">Termos do serviço</a> &amp; <a href="javascript:;" target="_blank">Politica de privacidade</a>
+          </label>
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="6">
+          Criar minha conta &nbsp; <i class="fa fa-play-circle"></i>
+          </button>
+        </div> <!-- /.form-group -->
+
+      </form>
+
+    </div> <!-- /.account-body -->
+
+    <div class="account-footer">
+      <p>
+     Já tem uma conta? &nbsp;
+      <a href="./account-login.html" class="">Faça o login para acessar o sistema!</a>
+      </p>
+    </div> <!-- /.account-footer -->
+
+  </div> <!-- /.account-wrapper -->
+
+</div>

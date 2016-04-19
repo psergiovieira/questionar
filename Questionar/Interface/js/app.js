@@ -7,6 +7,10 @@ app.config(['$routeProvider',
         templateUrl: 'app/public/landing.html',
         controller: 'Home'
       }).
+      when('/account-signup', {
+        templateUrl: 'app/public/account-signup.html',
+        controller: 'Account'
+      }).
       otherwise({
         redirectTo: '/home'
       });
