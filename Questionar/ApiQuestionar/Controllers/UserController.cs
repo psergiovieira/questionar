@@ -21,7 +21,7 @@ namespace ApiQuestionar.Controllers
         public IHttpActionResult Post(User user)
         {
             _manager.Create(user);
-            return Ok("teste");
+            return Ok("Usuário cadastrado com sucesso!");
         }
     }
 }
