@@ -5,6 +5,8 @@ using Infraestructure.UnitOfWork;
 using Infraestructure.Repository;
 using Data;
 using Data.Security;
+using NHibernate.Linq;
+using System.Linq;
 
 namespace UnitTestDomain
 {
