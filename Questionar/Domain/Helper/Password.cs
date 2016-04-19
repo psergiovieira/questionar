@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 
-namespace ApiQuestionar.Helper
+namespace Domain.Helper
 {
     public class Password
     {
