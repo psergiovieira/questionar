@@ -11,7 +11,7 @@ using System.Security.Authentication;
 
 namespace ApiQuestionar.Auth
 {
-    public class UserStore<TUser> : IUserRoleStore<TUser> where TUser : IdentityUser, new()
+    public class UserStore<TUser> : IUserStore<TUser> , IUserRoleStore<TUser> where TUser : IdentityUser, new()
     {
         private Domain.Manager.UserManager _manager;
         Task IUserRoleStore<TUser, string>.AddToRoleAsync(TUser user, string roleName)
@@ -23,7 +23,7 @@ namespace ApiQuestionar.Auth
         {
             var _unitOfWork = new NhibernateUnitOfWork();
             var _repository = new NHibernateRepository<User>(_unitOfWork);
-            var _manager = new Domain.Manager.UserManager(_repository, _unitOfWork);
+            _manager = new Domain.Manager.UserManager(_repository, _unitOfWork);
         }
 
         Task IUserStore<TUser, string>.CreateAsync(TUser user)
@@ -60,7 +60,8 @@ namespace ApiQuestionar.Auth
         {
             Task<TUser> taskInvoke = Task<TUser>.Factory.StartNew(() =>
             {
-                var user = _manager.Repository.Query<User>().FirstOrDefault(x => x.Name.ToUpper() == userName.ToUpper());
+                userName = userName.ToLower();
+                var user = _manager.Repository.Query().FirstOrDefault(x => x.UserName.ToLower() == userName);
                 if (user == null)
                     return null;
 
@@ -78,7 +79,12 @@ namespace ApiQuestionar.Auth
 
         Task<IList<string>> IUserRoleStore<TUser, string>.GetRolesAsync(TUser user)
         {
-            throw new NotImplementedException();
+            //TODO BUSCAR ROLES
+            Task<IList<string>> taskInvoke = Task<IList<string>>.Factory.StartNew(() =>
+            {
+                return new List<string>();
+            });
+            return taskInvoke;
         }
 
         Task<bool> IUserRoleStore<TUser, string>.IsInRoleAsync(TUser user, string roleName)

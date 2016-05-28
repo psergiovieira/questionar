@@ -6,6 +6,7 @@ using System.Security.Authentication;
 using System.Threading.Tasks;
 using System.Web;
 
+
 namespace ApiQuestionar.Auth
 {
     public class ApiUserManager : UserManager<IdentityUser>
@@ -13,7 +14,7 @@ namespace ApiQuestionar.Auth
         public ApiUserManager(IUserStore<IdentityUser> store) : base(store)
         {
             this.PasswordHasher = new PasswordHasher();
-        }
+        }     
 
         public override Task<IdentityUser> FindAsync(string userName, string password)
         {
