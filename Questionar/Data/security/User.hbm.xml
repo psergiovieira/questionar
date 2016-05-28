@@ -13,6 +13,6 @@
 		<property column="email" type="String" name="Email" not-null="true" length="20" />
     <property column="user_name" type="String" name="UserName" not-null="true" />
     <property column="is_teacher" type="Boolean" name="IsTeacher" not-null="true" />
-    <property column="is_teacher" type="Boolean" name="Active" not-null="true" />
+    <property column="active" type="Boolean" name="Active" not-null="true" />
 	  </class>
 </hibernate-mapping>
