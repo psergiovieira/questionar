@@ -9,6 +9,7 @@ using NHibernate.Linq;
 using System.Linq;
 using Infraestructure;
 using Moq;
+using Domain.Exceptions;
 
 namespace UnitTestDomain
 {
@@ -47,6 +48,19 @@ namespace UnitTestDomain
             var user = _manager.Repository.GetById(1);
 
             Assert.AreEqual(user, _user);
+        }
+
+        [TestMethod]
+        public void CanAddUser()
+        {
+            _manager.Create(_user);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(QuestionarException))]
+        public void TestEmptyFields()
+        {
+            _manager.Create(new User());
         }
     }
 }
