@@ -55,6 +55,20 @@ namespace Data.Security
             set { _userName = value; }
         }
 
+        private bool _active;
+        public virtual bool Active
+        {
+            get { return _active; }
+            set { _active = value; }
+        }
+
+        private bool _isTeacher;
+        public virtual bool IsTeacher
+        {
+            get { return _isTeacher; }
+            set { _isTeacher = value; }
+        }
+
         public User()
         {
         }
