@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js" ng-app="app"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js" ng-app="questionar.app"> <!--<![endif]-->
 <head>
   <title>Homepage &middot; Questionar</title>
 
@@ -63,23 +63,19 @@
           </li>    
 
           <li class="">
-            <a href="#/account-signup">Cadastrar</a>
+            <a href="#/account-signup">Cadastre -se como Aluno </a>
           </li>      
 
           <li class="">
-            <a href="./page-faq.html">FAQ</a>
+            <a href="./page-faq.html">Cadastre -se como Professor</a>
           </li>
-
-          <li class="">
-            <a href="./page-pricing.html">Pricing</a>
-          </li>   
-
-          <li class="">
-            <a href="./page-contact.html">Contact</a>
-          </li> 
           <li>
             <a href="../admin/account-login-social.html">Login</a>
-          </li>    
+          </li>
+
+         <li class="">
+            <a href="./page-contact.html">Contato</a>
+          </li>     
 
         </ul>
 
@@ -245,8 +241,9 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="./js/libs/jquery-1.10.2.min.js"></script>
-<script src="./js/libs/bootstrap.min.js"></script>
+<!--<script src="./js/libs/jquery-1.10.2.min.js"></script>-->
+<script src="./js/jquery/dist/jquery.js"></script>
+<script src="./js/libs/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="./js/plugins/timeago/jquery.timeago.js"></script>
 <script src="./js/plugins/tweetable/tweetable.jquery.min.js"></script>
@@ -265,15 +262,27 @@
 
 
 <!-- Angular JS -->
+
 <script src="./js/angular/angular.js"></script>
 <script src="./js/angular/angular-route.js"></script>
-<script src="./js/angular/angular-resource.js"></script>
+<script src="./js/angular-resource/angular-resource.js"></script>
+<script src="./js/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="./js/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 
 <!-- App-->
-<script src="./js/app.js"></script>
-<script src="./js/controllers.js"></script>
+<script src="./app/app.module.js"></script>
+<script src="./app/public/public.module.js"></script>
 
+<script src="./app/public/landing.controller.js"></script>
+<script src="./app/public/account-signup.controller.js"></script>
+
+<script src="./app/admin/private.modules.js"></script>
+
+<!--WIDGETS -->
+<script src="./app/widgets/widgets.module.js"></script>
+<script src="./app/widgets/widgets.dialog.controller.js"></script>
+<script src="./app/widgets/widgets.dialog.service.js"></script>
 
 </body>
 </html>

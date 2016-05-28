@@ -1,0 +1,1 @@
+var privateModules = angular.module('questionar.private', []);

@@ -1,0 +1,9 @@
+
+<div class="modal-header">
+  <h3 class="modal-title"><span></span>	Questionar</h3>
+</div>
+<div class="modal-body">	{{message}}</div>
+<div class="modal-footer">
+  <button ng-click="confirm()" class="btn btn-success">{{buttons.confirm}}</button>
+  <button ng-if="isCancel" ng-click="cancel()" class="btn btn-default">{{buttons.cancel}}</button>
+</div>

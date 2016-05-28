@@ -12,35 +12,35 @@
 
         <div class="form-group">
           <label for="signup-email" class="placeholder-hidden">E-mail</label>
-          <input type="text" class="form-control" id="signup-email" placeholder="E-mail" tabindex="1" ng-model="user.Email">
+          <input type="email" class="form-control" id="signup-email" placeholder="E-mail" tabindex="1" ng-model="user.Email" required="">
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <label for="signup-fullname" class="placeholder-hidden">Nome Completo</label>
-          <input type="text" class="form-control" id="signup-fullname" placeholder="Nome Completo" tabindex="2" ng-model="user.Name">
+          <input type="text" class="form-control" id="signup-fullname" placeholder="Nome Completo" tabindex="2" ng-model="user.Name" required="" pattern=".{3,}"  required title="3 caracteres no mínimo">
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <label for="signup-username" class="placeholder-hidden">Nome de usuário</label>
-          <input type="text" class="form-control" id="signup-username" placeholder="Nome de usuário" tabindex="3" ng-model="user.UserName">
+          <input type="text" class="form-control" id="signup-username" placeholder="Nome de usuário" tabindex="3" ng-model="user.UserName" required="" pattern=".{3,}"  required title="3 caracteres no mínimo" >
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <label for="login-password" class="placeholder-hidden">Senha</label>
-          <input type="password" class="form-control" id="login-password" placeholder="Senha" tabindex="4" ng-model="user.Password">
+          <input type="password" class="form-control" id="login-password" placeholder="Senha" tabindex="4" ng-model="user.Password" required="" pattern=".{3,}"  required title="6 caracteres no mínimo">
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <label class="checkbox-inline">
-          <input type="checkbox" class="" value="" tabindex="5"> Eu concordo com os <a href="javascript:;" target="_blank">Termos do serviço</a> &amp; <a href="javascript:;" target="_blank">Politica de privacidade</a>
+          <input type="checkbox" required class="" value="" tabindex="5"> Eu concordo com os <a href="javascript:;" target="_blank">Termos do serviço</a> &amp; <a href="javascript:;" target="_blank">Politica de privacidade</a>
           </label>
-        </div> <!-- /.form-group -->
+        </div required=""> <!-- /.form-group -->
 
         <div class="form-group">
           <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="6">
           Criar minha conta &nbsp; <i class="fa fa-play-circle"></i>
           </button>
-        </div> <!-- /.form-group -->
+        </div required=""> <!-- /.form-group -->
 
       </form>
 

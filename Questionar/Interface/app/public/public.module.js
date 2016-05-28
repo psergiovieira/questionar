@@ -1,0 +1,1 @@
+var publicModules = angular.module('questionar.public', []);
