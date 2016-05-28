@@ -54,6 +54,12 @@ namespace Infraestructure.Repository
         public T Get<T>(object id)
         {
             return Session.Get<T>(id);
-        }        
+        }
+
+
+        public IQueryable<T> Query()
+        {
+            return Session.Query<T>();
+        }
     }
 }

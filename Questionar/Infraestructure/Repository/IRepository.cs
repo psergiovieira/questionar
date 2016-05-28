@@ -20,6 +20,8 @@ namespace Infraestructure
 
         void Delete(int id);
 
-        IQueryable<TEntity> Query<TEntity>();
+        IQueryable<T> Query<T>();
+
+        IQueryable<T> Query();
     }
 }
