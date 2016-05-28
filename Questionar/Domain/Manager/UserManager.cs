@@ -26,16 +26,18 @@ namespace Domain.Manager
             if (emptyField)
                 throw new QuestionarException("Preencha os campos obrigatórios!");
 
-            if (Repository.Query().Any(c => c.UserName.ToLower() == user.UserName.ToLower()))
+            if (Repository.Query().Any(c => c.Active && c.UserName.ToLower() == user.UserName.ToLower()))
                 throw new QuestionarException("Nome de usuário já registrado, por favor informe um nome de usuário válido!");
 
-            if (Repository.Query().Any(c => c.Email.ToLower() == user.Email.ToLower()))
+            if (Repository.Query().Any(c => c.Active && c.Email.ToLower() == user.Email.ToLower()))
                 throw new QuestionarException("E-mail já cadastrado, por favor informe um email válido!");      
 
             Transaction(()=>
             {
                 user.Password = Password.Encrypty(user.Password);
                 user.Created = DateTime.Now;
+                user.Active = true;
+                user.IsTeacher = false;
                 Repository.Create(user);
             });
         }
