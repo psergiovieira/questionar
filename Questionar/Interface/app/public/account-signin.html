@@ -1,0 +1,36 @@
+ <div class="account-wrapper">
+
+    <div class="account-body">
+
+      <h3>Bem vindo de volta ao Questionar.</h3>
+
+      <h5>Por favor, faça o login para ter acesso.</h5>
+
+      <br>
+      <form class="form account-form" ng-submit="login()">
+
+        <div class="form-group">
+          <label for="login-username" class="placeholder-hidden">Nome de Usuário</label>
+          <input type="text" required class="form-control" id="login-username" placeholder="Nome de Usuário" tabindex="1" ng-model="user.UserName" >
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <label for="login-password" class="placeholder-hidden">Senha</label>
+          <input type="password" required class="form-control" id="login-password" placeholder="Senha" tabindex="2" ng-model="user.Password">
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">Entrar &nbsp; <i class="fa fa-play-circle"></i></button>
+        </div> <!-- /.form-group -->
+      </form>
+
+    </div> <!-- /.account-body -->
+
+    <div class="account-footer">
+      <p>
+      Não tem uma conta ainda? &nbsp;
+      <a href="#/account-signup" class="">Cadastre-se!</a>
+      </p>
+    </div> <!-- /.account-footer -->
+
+  </div> <!-- /.account-wrapper -->

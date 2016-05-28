@@ -1,12 +1,13 @@
-publicModules.controller('AccountSignUp', ['$scope', '$http', 'dialog', '$location' ,
+publicModules.controller('AccountSignIn', ['$scope', '$http', 'dialog', '$location' ,
   function ($scope, $http, dialog, $location) {
 
    $scope.user = {};
-   $scope.save = function() {
+   $scope.login = function() {
 
    	var data = $scope.user;
+    
 
-       $http({url: urlApi + 'User/Post',method: 'POST', data: angular.toJson(data) })
+      /* $http({url: urlApi + 'User/Post',method: 'POST', data: angular.toJson(data) })
        .success(function(result) {            
 
              dialog({message: result});  
@@ -14,7 +15,7 @@ publicModules.controller('AccountSignUp', ['$scope', '$http', 'dialog', '$locati
             $location.path('/admin/student/home.html');
         }).error(function(result) {
             dialog({message: result.Message});           
-        });           
+        });           */
   
 	}
   }]);

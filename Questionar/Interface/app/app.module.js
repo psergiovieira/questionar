@@ -8,7 +8,6 @@ var app = angular.module('questionar.app',
    'questionar.private'
  ]);
 
-
 var urlApi = 'http://localhost/Questionar.WebApi/api/';
 
 app.config(['$routeProvider',
@@ -20,11 +19,15 @@ app.config(['$routeProvider',
       }).
       when('/account-signup', {
         templateUrl: 'app/public/account-signup.html',
-        controller: 'Account'
+        controller: 'AccountSignUp'
       }).
       when('/admin/student/home.html', {
         templateUrl: 'app/admin/student/home.html',
         controller: 'HomeStudent'
+      }).
+      when('/account-signin', {
+        templateUrl: 'app/public/account-signin.html',
+        controller: 'AccountSignIn'
       }).
       otherwise({
         redirectTo: '/home'
