@@ -1,20 +1,18 @@
-﻿using Data;
-using Data.Security;
+﻿using Data.Security;
 using Domain.Exceptions;
 using Domain.Helper;
 using Infraestructure;
 using Infraestructure.Business;
 using Infraestructure.UnitOfWork;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Manager
 {
     public class UserManager : Business<User>
     {
+        private string requiredField = "{0} já registrado, por favor informe um {0} válido!";
+
         public UserManager(IRepository<User> user, IUnitOfWork unitOfWork)
             : base(user, unitOfWork)
         {
@@ -27,10 +25,11 @@ namespace Domain.Manager
                 throw new QuestionarException("Preencha os campos obrigatórios!");
 
             if (Repository.Query().Any(c => c.Active && c.UserName.ToLower() == user.UserName.ToLower()))
-                throw new QuestionarException("Nome de usuário já registrado, por favor informe um nome de usuário válido!");
+                throw new QuestionarException(String.Format(requiredField,"Nome de usuário"));
 
             if (Repository.Query().Any(c => c.Active && c.Email.ToLower() == user.Email.ToLower()))
-                throw new QuestionarException("E-mail já cadastrado, por favor informe um email válido!");      
+                throw new QuestionarException(String.Format(requiredField, "E-mail"));     
+ 
 
             Transaction(()=>
             {
