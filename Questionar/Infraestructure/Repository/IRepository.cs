@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Infraestructure.Types;
+using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Infraestructure.Types;
 
 namespace Infraestructure
 {
@@ -20,8 +17,7 @@ namespace Infraestructure
 
         void Delete(int id);
 
-        IQueryable<T> Query<T>();
-
-        IQueryable<T> Query();
+        IQueryable<T> Query(Expression<Func<T, bool>> filter = null,
+           Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null);
     }
 }

@@ -1,12 +1,9 @@
-﻿using NHibernate;
+﻿using Infraestructure.Types;
+using Infraestructure.UnitOfWork;
+using NHibernate;
 using NHibernate.Linq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Infraestructure.Types;
-using Infraestructure.UnitOfWork;
 using System.Linq.Expressions;
 
 namespace Infraestructure.Repository
@@ -46,7 +43,7 @@ namespace Infraestructure.Repository
             Session.Delete(Session.Load<T>(id));
         }
 
-        public IQueryable<T> Query<T>()
+        public IQueryable<T> Query(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null)
         {
             return Session.Query<T>();
         }
@@ -54,12 +51,6 @@ namespace Infraestructure.Repository
         public T Get<T>(object id)
         {
             return Session.Get<T>(id);
-        }
-
-
-        public IQueryable<T> Query()
-        {
-            return Session.Query<T>();
         }
     }
 }
