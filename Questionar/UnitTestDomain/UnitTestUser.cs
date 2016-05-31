@@ -33,8 +33,7 @@ namespace UnitTestDomain
                 UserName = "psvieira",
                 Password = "123456",
                 Created = new DateTime(2015, 1, 10),
-                Active = true,
-                IsTeacher = false,
+                Active = true,                
                 Email = "psvieira.ti@gmail.com"
             };
         }
