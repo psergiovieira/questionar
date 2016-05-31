@@ -36,7 +36,6 @@ namespace Domain.Manager
                 user.Password = Password.Encrypty(user.Password);
                 user.Created = DateTime.Now;
                 user.Active = true;
-                user.IsTeacher = false;
                 Repository.Create(user);
             });
         }

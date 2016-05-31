@@ -29,6 +29,10 @@ app.config(['$routeProvider',
         templateUrl: 'app/admin/student/home.html',
         controller: 'HomeStudent'
       }).
+      when('/admin/teacher/home.html', {
+        templateUrl: 'app/admin/teacher/home.html',
+        controller: 'HomeTeacher'
+      }).
       when('/account-signin', {
         templateUrl: 'app/public/account-signin.html',
         controller: 'AccountSignIn'

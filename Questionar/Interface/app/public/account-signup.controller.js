@@ -5,6 +5,7 @@ publicModules.controller('AccountSignUp', ['$scope', '$http', 'dialog', '$locati
    $scope.save = function() {
 
    	var data = $scope.user;
+    data.IsTeacher = false;
 
        $http({url: urlApi + 'User/Post',method: 'POST', data: angular.toJson(data) })
        .success(function(result) {            
