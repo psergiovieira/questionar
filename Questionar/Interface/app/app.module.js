@@ -101,6 +101,10 @@ app.config(['$routeProvider',
         templateUrl: 'app/public/account-signin.html',
         controller: 'AccountSignIn'
       }).
+      when('/admin/teacher/course', {
+        templateUrl: 'app/admin/teacher/course/course.create.html',
+        controller: 'CreateCourse'
+      }).
       otherwise({
         redirectTo: '/home'
       });
