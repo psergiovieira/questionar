@@ -9,13 +9,75 @@ var app = angular.module('questionar.app',
  ]);
 
 var urlApi = 'http://localhost/Questionar.WebApi/api/';
+angular.module('questionar.app').run(Run);
+Run.$inject = ['$rootScope', '$http', '$location'];
+function Run($rootScope, $http, $location) {
+
+        $rootScope.clear = function() {
+            $rootScope.isAuthenticate = false;
+            $rootScope.user = undefined;
+            $rootScope.type = undefined;
+            sessionStorage["accessToken"] = undefined;
+            localStorage["accessToken"] = undefined;
+            $location.path("/account-signin")
+        };
+
+
+
+        var studentInfo = function() {
+            $http.get(urlApi + 'User/UserInfo').success(function(data) {
+                $rootScope.isAuthenticate = true;
+                $rootScope.user = data;
+                $rootScope.type = data.type;
+                $rootScope.initial = data.numberCourse == 0;
+                if(data.IsTeacher)
+                  $rootScope.clear();
+            }).error(function(data) {
+                $rootScope.clear();
+            });
+        };
+
+        var teacherInfo = function() {
+            $http.get(urlApi + 'User/UserInfo').success(function(data) {
+                $rootScope.isAuthenticate = true;
+                $rootScope.user = data;
+                $rootScope.type = data.type;
+                $rootScope.initial = data.numberCourse == 0;
+                if(!data.IsTeacher)
+                  $rootScope.clear();
+
+            }).error(function(data) {
+                $rootScope.clear();
+            });
+        };
+
+        $rootScope.logout = function() {
+            $http({url: urlApi + 'User/LogOut',method: 'POST'}).logout().success(function(resposta) {
+                $rootScope.clear();
+            }).error(function() {
+                $rootScope.clear();
+            });
+        };
+
+        $rootScope.$on('$routeChangeSuccess', function(next, current, previous) {
+            if (current.$$route) {
+                $rootScope.title = current.$$route.title;
+                if (current.$$route.authenticateStudent) {
+                    studentInfo();
+                }
+                if (current.$$route.authenticateTeacher) {
+                    teacherInfo();
+                }
+            }
+        });
+    }
 
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/home', {
         templateUrl: 'app/public/landing.html',
-        controller: 'Home'
+        controller: 'Home'        
       }).
       when('/account-signup', {
         templateUrl: 'app/public/account-signup.html',
@@ -27,11 +89,13 @@ app.config(['$routeProvider',
       }).
       when('/admin/student/home.html', {
         templateUrl: 'app/admin/student/home.html',
-        controller: 'HomeStudent'
+        controller: 'HomeStudent',
+        authenticateStudent: true       
       }).
       when('/admin/teacher/home.html', {
         templateUrl: 'app/admin/teacher/home.html',
-        controller: 'HomeTeacher'
+        controller: 'HomeTeacher',
+        authenticateTeacher: true        
       }).
       when('/account-signin', {
         templateUrl: 'app/public/account-signin.html',

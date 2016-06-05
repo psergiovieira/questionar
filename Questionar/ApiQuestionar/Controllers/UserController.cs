@@ -87,9 +87,9 @@ namespace ApiQuestionar.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize()]
-        public IHttpActionResult IsLogged()
+        public IHttpActionResult UserInfo()
         {
-            var identity = UserManagerAuth.FindById<IdentityUser, string>(User.Identity.GetUserId());            
+            var identity = UserManagerAuth.FindById<IdentityUser, string>(User.Identity.GetUserId());
             var user = _manager.Repository.GetById(int.Parse(identity.Id));
             if (!user.Active)
             {
@@ -97,7 +97,7 @@ namespace ApiQuestionar.Controllers
                 return NotFound();
             }
 
-            return Ok();
+            return Ok(new { user.Id, user.Name, user.UserName, user.IsTeacher });
         }
 
     }
