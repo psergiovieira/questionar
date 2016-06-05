@@ -10,9 +10,12 @@ publicModules.controller('AccountSignIn', ['$scope', '$http', 'dialog', '$locati
       $http({url: urlApi + 'User/Login',method: 'POST', data: angular.toJson(data) })
        .success(function(result) {            
 
-             dialog({message: result});  
+             dialog({message: "Usuário autenticado com sucesso"});  
 
-            $location.path('/admin/student/home.html');
+            if(result.IsTeacher) 
+              $location.path('/admin/teacher/home.html');
+            else
+              $location.path('/admin/student/home.html');
         }).error(function(result) {
             dialog({message: result.Message});           
         });           

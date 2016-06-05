@@ -49,9 +49,10 @@ namespace ApiQuestionar.Controllers
             user.UserName = user.UserName.Replace(".", "").Replace("-", "");
 
             var response = await UserManagerAuth.FindAsync(user.UserName, user.Password);
-
             await SignInAsync(response, true);
-            return Ok("Usuário autenticado com sucesso");
+
+            var userAuthenticated = _manager.Repository.GetById(int.Parse(response.Id));
+            return Ok(new { userAuthenticated.Id, userAuthenticated.Name, userAuthenticated.UserName, userAuthenticated.IsTeacher });
         }
 
         private async Task SignInAsync(IdentityUser identityUser, bool isPersistent)
