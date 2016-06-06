@@ -1,33 +1,32 @@
  <div ng-include src="'././app/admin/teacher/menu.html'"></div>
- <div class="col-sm-4 col-md-8">
- <form action="./page-settings.html" class="form-horizontal">
+ <div class="col-sm-4 col-md-8" align="center">
+  <h3 align="left" >Cadastro de disciplinas</h3>
+ <form  class="form-horizontal" ng-submit="save()">  
         <div class="form-group">
 
-          <label class="col-md-3">Nome</label>
+          <label class="col-md-3" for="name">Nome</label>
 
           <div class="col-md-7">
-            <input type="text" name="user-name" value="jumpstartui" class="form-control" disabled />
+            <input type="text" name="name" value="" class="form-control" tabindex="1" ng-model="course.Name"/>
           </div> <!-- /.col -->
 
         </div> <!-- /.form-group -->
 
         <div class="form-group">
 
-          <label class="col-md-3">Descrição</label>
+          <label class="col-md-3" for="description">Descrição</label>
 
           <div class="col-md-7">
-            <textarea id="about-textarea" name="about-you" rows="6" class="form-control">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</textarea>
+            <textarea id="about-textarea" name="description" rows="6" class="form-control" tabindex="2" ng-model="course.Description"></textarea>
           </div> <!-- /.col -->
 
         </div> <!-- /.form-group -->
 
-
-
-        <div class="form-group">
+        <div class="form-group" align="left">
           <div class="col-md-7 col-md-push-3">
-            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
             &nbsp;
-            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="reset" class="btn btn-default">Cancelar</button>
           </div> <!-- /.col -->
         </div> <!-- /.form-group -->
 
