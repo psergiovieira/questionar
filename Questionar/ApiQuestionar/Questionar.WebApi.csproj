@@ -131,6 +131,7 @@
     <Compile Include="Auth\PasswordHasher.cs" />
     <Compile Include="Auth\UserStore.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
