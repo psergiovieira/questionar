@@ -105,6 +105,10 @@ app.config(['$routeProvider',
         templateUrl: 'app/admin/teacher/course/course.create.html',
         controller: 'CreateCourse'
       }).
+       when('/admin/teacher/course/list', {
+        templateUrl: 'app/admin/teacher/course/course.list.html',
+        controller: 'ListCourse'
+      }).
       otherwise({
         redirectTo: '/home'
       });

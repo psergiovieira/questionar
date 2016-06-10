@@ -1,9 +1,12 @@
 ﻿using Data;
+using Data.Security;
 using Domain.Exceptions;
 using Infraestructure;
 using Infraestructure.Business;
 using Infraestructure.UnitOfWork;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain.Manager
 {
@@ -29,9 +32,14 @@ namespace Domain.Manager
             });
         }
 
-        //public List<Course> GetAll()
-        //{
-        //    Repository.Query(c=>c.)
-        //}
+        public List<Course> GetAll(User user)
+        {
+            return Repository.Query(c => c.Teacher.Id == user.Id).ToList();
+        }
+
+        public Course GetById(int id)
+        {
+            return Repository.GetById(id);
+        }
     }
 }

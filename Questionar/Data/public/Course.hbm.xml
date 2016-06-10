@@ -10,7 +10,7 @@
     <property column="name" type="String" name="Name" not-null="true" length="100" />
     <property column="description" type="String" name="Description" not-null="true" length="1000" />
     <property column="created" type="DateTime" name="Created" not-null="true" />
-    <many-to-one name="Teacher" column="teacher_id" class="Data.Course,Data" />
+    <many-to-one name="Teacher" column="teacher_id" class="Data.Security.User,Data" />
   
   </class>
 </hibernate-mapping>
