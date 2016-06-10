@@ -1,4 +1,5 @@
 ﻿
+using Data.Security;
 using System;
 
 namespace Data
@@ -31,6 +32,14 @@ namespace Data
         {
             get { return _created; }
             set { _created = value; }
+        }
+
+        private User _teacher;
+
+        public virtual User Teacher
+        {
+            get { return _teacher; }
+            set { _teacher = value; }
         }
     }
 }

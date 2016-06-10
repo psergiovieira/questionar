@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Security;
 using Domain.Exceptions;
 using Domain.Manager;
 using Infraestructure;
@@ -17,6 +18,7 @@ namespace UnitTestDomain
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private CourseManager _manager;
         private Course _course;
+        private User _teacher;
 
         [TestInitialize]
         public void Initialize()
@@ -24,12 +26,14 @@ namespace UnitTestDomain
             _mockRepository = new Mock<IRepository<Course>>();
             _mockUnitOfWork = new Mock<IUnitOfWork>();
             _manager = new CourseManager(_mockRepository.Object, _mockUnitOfWork.Object);
+            _teacher = new User() {Id = 1, IsTeacher = true};
             _course = new Course()
             {
                 Description = "Testes",
                 Name = "Matematica",
                 Id = 1,
-                Created = new DateTime(2016, 01, 01)
+                Created = new DateTime(2016, 01, 01),
+                Teacher = _teacher
             };
         }
 
@@ -50,7 +54,7 @@ namespace UnitTestDomain
         [TestMethod]
         public void CanAddCourse()
         {
-            _manager.Repository.Create(_course);
+            _manager.Create(_course);
         }
 
         [TestMethod]
@@ -64,7 +68,7 @@ namespace UnitTestDomain
         [ExpectedException(typeof(QuestionarException))]
         public void TestAddWithoutName()
         {
-            _manager.Create(new Course(){Description = "Testes"});
+            _manager.Create(new Course() { Description = "Testes" });
         }
 
         [TestMethod]
@@ -72,6 +76,14 @@ namespace UnitTestDomain
         public void TestAddWithoutDescription()
         {
             _manager.Create(new Course() { Name = "Testes" });
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(QuestionarException))]
+        public void CanAddAStudent()
+        {
+            _course.Teacher.IsTeacher = false;
+            _manager.Create(_course);
         }
     }
 }
