@@ -13,6 +13,7 @@ angular.module('questionar.app').run(Run);
 Run.$inject = ['$rootScope', '$http', '$location'];
 function Run($rootScope, $http, $location) {
 
+        $rootScope.isAuthenticate = false;
         $rootScope.clear = function() {
             $rootScope.isAuthenticate = false;
             $rootScope.user = undefined;
@@ -103,11 +104,13 @@ app.config(['$routeProvider',
       }).
       when('/admin/teacher/course', {
         templateUrl: 'app/admin/teacher/course/course.create.html',
-        controller: 'CreateCourse'
+        controller: 'CreateCourse',
+        authenticateTeacher: true   
       }).
        when('/admin/teacher/course/list', {
         templateUrl: 'app/admin/teacher/course/course.list.html',
-        controller: 'ListCourse'
+        controller: 'ListCourse',
+        authenticateTeacher: true   
       }).
       otherwise({
         redirectTo: '/home'

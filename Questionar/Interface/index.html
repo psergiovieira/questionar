@@ -69,8 +69,11 @@
           <li class="">
             <a href="#/teacher-signup">Cadastre -se como Professor</a>
           </li>
-          <li>
-            <a href="#/account-signin">Login</a>
+          <li ng-if="!isAuthenticate">
+            <a href="#/account-signin">Entrar</a>
+          </li>
+          <li ng-if="isAuthenticate">
+            <a href="#" ng-click="logout()">Sair</a>
           </li>
 
          <li class="">
