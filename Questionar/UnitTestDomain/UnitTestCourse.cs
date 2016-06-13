@@ -8,6 +8,8 @@ using Infraestructure.UnitOfWork;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UnitTestDomain
 {
@@ -84,6 +86,19 @@ namespace UnitTestDomain
         {
             _course.Teacher.IsTeacher = false;
             _manager.Create(_course);
+        }
+
+        [TestMethod]
+        public void CanIGetAll()
+        {
+            var courseList = new List<Course>();
+            for (int i = 0; i < 10; i++)
+            {
+                courseList.Add(new Course(){Teacher = _teacher});
+            }
+            _mockRepository.Setup(x => x.Query(null, null)).Returns(courseList.AsQueryable());
+            var result = _manager.GetAll(_teacher);
+            Assert.AreEqual(courseList.Count, result.Count);
         }
     }
 }

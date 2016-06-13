@@ -34,7 +34,7 @@ namespace Domain.Manager
 
         public List<Course> GetAll(User user)
         {
-            return Repository.Query(c => c.Teacher.Id == user.Id).ToList();
+            return Repository.Query().Where(c => c.Teacher.Id == user.Id).ToList();
         }
 
         public Course GetById(int id)
