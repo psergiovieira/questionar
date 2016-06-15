@@ -53,5 +53,20 @@ namespace ApiQuestionar.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult Get(string search)
+        {
+            var courses = _manager.GetByNameOrTeacher(search);
+            var result = courses.Select(c=> new
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Description = c.Description
+            }).ToList();           
+
+            return Ok(result);
+        }
     }
 }
