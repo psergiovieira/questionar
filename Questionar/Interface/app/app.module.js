@@ -13,6 +13,7 @@ var urlApi = 'http://localhost/Questionar.WebApi/api/';
 angular.module('questionar.app').run(Run);
 Run.$inject = ['$rootScope', '$http', '$location'];
 function Run($rootScope, $http, $location) {        
+        var history = [];
 
         $rootScope.isAuthenticate = false;
         $rootScope.clear = function() {
@@ -63,6 +64,7 @@ function Run($rootScope, $http, $location) {
         };
 
         $rootScope.$on('$routeChangeSuccess', function(next, current, previous) {
+          history.push($location.$$path);
           $rootScope.spinner = {active: false};
             if (current.$$route) {
                 $rootScope.title = current.$$route.title;
@@ -74,6 +76,11 @@ function Run($rootScope, $http, $location) {
                 }
             }
         });
+
+         $rootScope.back = function () {
+            var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+            $location.path(prevUrl);
+         };
 
         $rootScope.$on('$routeChangeStart', function() {
             $rootScope.spinner = {active: true};

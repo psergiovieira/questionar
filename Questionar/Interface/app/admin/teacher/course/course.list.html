@@ -12,12 +12,14 @@
             <thead>
               <tr>
                 <th style="width: 20%">Nome</th>
-                <th style="width: 80%">Descrição</th>                
+                <th style="width: 70%">Descrição</th>       
+                <th style="width: 10%"></th>           
               </tr>
             </thead>
             <tr ng-repeat = "course in courses">
               <td>{{course.Name}}</td>
-              <td>{{course.Description}}</td>              
+              <td>{{course.Description}}</td> 
+              <td><a href="#/admin/teacher/course/view/{{course.Id}}">Ver</a></td>                 
             </tr>    
           </table>
 
