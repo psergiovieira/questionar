@@ -121,6 +121,11 @@ app.config(['$routeProvider',
        when('/admin/teacher/course/list', {
         templateUrl: 'app/admin/teacher/course/course.list.html',
         controller: 'ListCourse',
+        authenticateTeacher: true         
+      }).
+       when('/admin/teacher/course/view/:id', {
+        templateUrl: 'app/admin/teacher/course/course.view.html',
+        controller: 'ViewCourse',
         authenticateTeacher: true   
       }).
       otherwise({
