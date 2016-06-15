@@ -28,7 +28,7 @@ namespace UnitTestDomain
             _mockRepository = new Mock<IRepository<Course>>();
             _mockUnitOfWork = new Mock<IUnitOfWork>();
             _manager = new CourseManager(_mockRepository.Object, _mockUnitOfWork.Object);
-            _teacher = new User() {Id = 1, IsTeacher = true};
+            _teacher = new User() {Id = 1, IsTeacher = true, Name = "Professor"};
             _course = new Course()
             {
                 Description = "Testes",
@@ -98,6 +98,38 @@ namespace UnitTestDomain
             }
             _mockRepository.Setup(x => x.Query(null, null)).Returns(courseList.AsQueryable());
             var result = _manager.GetAll(_teacher);
+            Assert.AreEqual(courseList.Count, result.Count);
+        }
+
+        [TestMethod]
+        public void CanIGetByName()
+        {
+            var courseList = new List<Course>();
+            for (int i = 0; i < 10; i++)
+            {
+                courseList.Add(new Course() { Teacher = _teacher , Name = "Matematica" });
+            }
+
+            courseList.Add(new Course() { Teacher = _teacher, Name = "Português" });
+
+            _mockRepository.Setup(x => x.Query(null, null)).Returns(courseList.AsQueryable());
+            var search = "Português";
+            var result = _manager.GetByNameOrTeacher(search);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [TestMethod]
+        public void CanIGetByTeacher()
+        {
+            var courseList = new List<Course>();
+            for (int i = 0; i < 10; i++)
+            {
+                courseList.Add(new Course() { Teacher = _teacher, Name = "Matematica" });
+            }           
+
+            _mockRepository.Setup(x => x.Query(null, null)).Returns(courseList.AsQueryable());
+            var search = "Profe";
+            var result = _manager.GetByNameOrTeacher(search);
             Assert.AreEqual(courseList.Count, result.Count);
         }
     }

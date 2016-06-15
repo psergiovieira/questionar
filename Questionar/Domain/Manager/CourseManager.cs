@@ -12,7 +12,7 @@ namespace Domain.Manager
 {
     public class CourseManager : Business<Course>
     {
-        public CourseManager(IRepository<Course> repository, IUnitOfWork unitOfWork) 
+        public CourseManager(IRepository<Course> repository, IUnitOfWork unitOfWork)
             : base(repository, unitOfWork)
         {
         }
@@ -23,7 +23,7 @@ namespace Domain.Manager
             if (emptyField)
                 throw new QuestionarException("Preencha os campos obrigatórios!");
 
-            if(!course.Teacher.IsTeacher)
+            if (!course.Teacher.IsTeacher)
                 throw new QuestionarException("Apenas professores podem cadastrar disciplinas!");
             Transaction(() =>
             {
@@ -40,6 +40,12 @@ namespace Domain.Manager
         public Course GetById(int id)
         {
             return Repository.GetById(id);
+        }
+
+        public List<Course> GetByNameOrTeacher(string nameOrTeacher)
+        {
+            var query = Repository.Query();           
+            return query.Where(c => c.Name.ToLower().Contains(nameOrTeacher.ToLower()) || c.Teacher.Name.ToLower().Contains(nameOrTeacher.ToLower())).ToList();
         }
     }
 }
