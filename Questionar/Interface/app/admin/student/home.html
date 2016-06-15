@@ -5,26 +5,19 @@
     <h4>Buscar novo curso</h4>
     <div class="col-lg-9"> 
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
+            <input type="text" class="form-control" placeholder="Buscar por..." ng-model="inputSearch">
             <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Pesquisar</button>
+            <button class="btn btn-default" type="button" ng-click="search()">Pesquisar</button>
           </span>
         </div>
         <br>
         <br>
-        <div class="list-group">
+        <div class="list-group" ng-repeat = "course in courses">
           <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            <h4 class="list-group-item-heading">{{course.Name}}</h4>
+            <p class="list-group-item-text">{{course.Description}}</p>
           </a>
-          <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          </a>
-          <a href="#" class="list-group-item">
-            <h4 class="list-group-item-heading">List group item heading</h4>
-            <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          </a>
+          
         </div>
     </div>
     <br>
