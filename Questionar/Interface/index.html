@@ -25,6 +25,9 @@
   <link href="./css/mvpready-landing.css" rel="stylesheet">
   <link href="./css/mvpready-flat.css" rel="stylesheet">
   <link href="./css/animate.css" rel="stylesheet">
+  <link href="./css/treasure-overlay-spinner.min.css" rel="stylesheet">
+
+  
   <link rel="stylesheet" href="./css/mvpready-admin.css">
   <!-- <link href="./css/custom.css" rel="stylesheet">-->
 
@@ -37,7 +40,8 @@
 
   <link rel="shortcut icon" href="favicon.ico">
 </head>
-<div id="wrapper">
+
+<div id="wrapper">  
 <header class="navbar navbar-inverse" role="banner">
 
     <div class="container">
@@ -113,12 +117,14 @@
 
 </header> 
 
-
+ <treasure-overlay-spinner active='spinner.active'>
   <div ng-view></div>
-
+  
+</treasure-overlay-spinner>
 
 
 </div> <!-- /#wrapper -->
+
 <footer class="footer">
 
   <div class="container">
@@ -239,7 +245,7 @@
     
   </div>
 </footer>
-
+ 
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -270,10 +276,13 @@
 
 <script src="./js/angular/angular.js"></script>
 <script src="./js/angular/angular-route.js"></script>
+<script src="./js/angular-animate/angular-animate.js"></script>
 <script src="./js/angular-resource/angular-resource.js"></script>
 <script src="./js/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="./js/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
+<!-- preloader -->
+<script src="./js/treasure-overlay-spinner.min.js"></script>
 
 <!-- App-->
 <script src="./app/app.module.js"></script>

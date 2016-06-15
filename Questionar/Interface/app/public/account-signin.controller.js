@@ -8,7 +8,7 @@ publicModules.controller('AccountSignIn', ['$scope', '$http', 'dialog', '$locati
       $http({url: urlApi + 'User/Login',method: 'POST', data: angular.toJson(data) })
        .success(function(result) {            
 
-             dialog({message: "Usuário autenticado com sucesso"});  
+             //dialog({message: "Usuário autenticado com sucesso"});  
 
             if(result.IsTeacher) 
               $location.path('/admin/teacher/home.html');

@@ -2,6 +2,7 @@ var app = angular.module('questionar.app',
  [  
    'ui.bootstrap',
    'questionar.widgets',
+   'treasure-overlay-spinner',
    'ngRoute',
    'ngResource',
    'questionar.public',
@@ -11,7 +12,7 @@ var app = angular.module('questionar.app',
 var urlApi = 'http://localhost/Questionar.WebApi/api/';
 angular.module('questionar.app').run(Run);
 Run.$inject = ['$rootScope', '$http', '$location'];
-function Run($rootScope, $http, $location) {
+function Run($rootScope, $http, $location) {        
 
         $rootScope.isAuthenticate = false;
         $rootScope.clear = function() {
@@ -53,7 +54,8 @@ function Run($rootScope, $http, $location) {
         };
 
         $rootScope.logout = function() {
-            $http({url: urlApi + 'User/LogOut',method: 'POST'}).logout().success(function(resposta) {
+            $http({url: urlApi + 'User/LogOut',method: 'POST'}).logout().success(function(resposta) {                
+                $location.path('/#');
                 $rootScope.clear();
             }).error(function() {
                 $rootScope.clear();
@@ -61,6 +63,7 @@ function Run($rootScope, $http, $location) {
         };
 
         $rootScope.$on('$routeChangeSuccess', function(next, current, previous) {
+          $rootScope.spinner = {active: false};
             if (current.$$route) {
                 $rootScope.title = current.$$route.title;
                 if (current.$$route.authenticateStudent) {
@@ -70,6 +73,14 @@ function Run($rootScope, $http, $location) {
                     teacherInfo();
                 }
             }
+        });
+
+        $rootScope.$on('$routeChangeStart', function() {
+            $rootScope.spinner = {active: true};
+        });
+    
+        $rootScope.$on('$routeChangeError', function() {
+          $scope.isViewLoading = false;
         });
     }
 
