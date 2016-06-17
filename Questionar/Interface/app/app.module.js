@@ -111,6 +111,11 @@ app.config(['$routeProvider',
         controller: 'HomeStudent',
         authenticateStudent: true       
       }).
+      when('/admin/student/subscribe/:id', {
+        templateUrl: 'app/admin/student/subscribe.html',
+        controller: 'Subscribe',
+        authenticateStudent: true       
+      }).
       when('/admin/teacher/home.html', {
         templateUrl: 'app/admin/teacher/home.html',
         controller: 'HomeTeacher',

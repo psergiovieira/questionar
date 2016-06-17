@@ -5,7 +5,7 @@
     <h4>Buscar novo curso</h4>
     <div class="col-lg-9"> 
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar por..." ng-model="inputSearch">
+            <input type="text" class="form-control" placeholder="Buscar por..." ng-keypress="($event.which === 13)?search():0" ng-model="inputSearch">
             <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="search()">Pesquisar</button>
           </span>
@@ -13,9 +13,9 @@
         <br>
         <br>
         <div class="list-group" ng-repeat = "course in courses">
-          <a href="#" class="list-group-item active">
+          <a href="#/admin/student/subscribe/{{course.Id}}" class="list-group-item active">
             <h4 class="list-group-item-heading">{{course.Name}}</h4>
-            <p class="list-group-item-text">{{course.Description}}</p>
+            <p class="list-group-item-text">{{course.Description}}</p>            
           </a>
           
         </div>
