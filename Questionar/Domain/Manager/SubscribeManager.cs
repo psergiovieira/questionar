@@ -27,15 +27,17 @@ namespace Domain.Manager
 
             if (Repository.Query().Any(c => c.Student.Id == user.Id && c.Course.Id == course.Id))
                 throw new QuestionarException("Usuário já inscrito nesta disciplina.");
+             Transaction(() =>
+             {
+                 var subscription = new Subscription
+                 {
+                     Course = course,
+                     Entered = DateTime.Now,
+                     Student = user
+                 };
 
-            var subscription = new Subscription
-            {
-                Course = course,
-                Entered = DateTime.Now,
-                Student = user
-            };
-
-            Repository.Create(subscription);
+                 Repository.Create(subscription);
+             });
         }
     }
 }
