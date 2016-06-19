@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Data.Answer,Data" table="public.answer" lazy="true">
+    <id name="Id" column="id" type="Int32" unsaved-value="0">
+      <generator class="native">
+        <param name="sequence">public.answer_id_seq</param>
+      </generator>
+    </id>
+    <property name="Created" column="created" type="DateTime"  not-null="true" />
+    <many-to-one name="Student" column="id_user" class="Data.Security.User,Data" />
+    <many-to-one name="Alternative" column="id_alternative" class="Data.Alternative,Data" />
+  </class>
+</hibernate-mapping>

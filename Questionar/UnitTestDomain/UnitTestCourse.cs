@@ -42,7 +42,7 @@ namespace UnitTestDomain
         [TestMethod]
         public void TestMapping()
         {
-            var test = new NHibernateRepository<Course>(new NhibernateUnitOfWork()).GetAll();
+            var entity = new NHibernateRepository<Course>(new NhibernateUnitOfWork()).GetAll();
         }
 
         [TestMethod]
