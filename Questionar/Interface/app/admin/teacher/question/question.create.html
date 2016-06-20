@@ -1,0 +1,69 @@
+ <div ng-include src="'././app/admin/teacher/menu.html'"></div>
+ <div class="container" >
+   <h3 class="content-title" ><ul>Cadastro de Questões</ul></h3>
+ <form  class="form-horizontal" ng-submit="save()">  
+        <div class="form-group">
+
+          <label class="col-md-3" for="name">Curso </label>
+
+          <div class="col-md-7">
+           <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" tabindex="1">
+              {{question.course.Name}}
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li ng-repeat = "course in courses"><a ng-click="courseSelected(course)">{{course.Name}}</a></li>                   
+            </ul>
+          </div>
+          </div> <!-- /.col -->
+
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+
+          <label class="col-md-3" for="description">Descrição</label>
+
+          <div class="col-md-7">
+            <textarea id="about-textarea" name="description" rows="6" class="form-control" tabindex="2" ng-model="question.Description"></textarea>
+          </div> <!-- /.col -->
+
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+
+          <label class="col-md-3" for="alternative">Adicionar alternativa</label>
+
+        <div class="col-md-7">
+          <textarea id="alternative_field" name="alternative" rows="6" class="form-control" tabindex="2" ng-model="alternative"></textarea>
+            <br/>
+            <div align="rigth"> <a href="#" class="btn btn-xs btn-primary">Adicionar <span class="glyphicon glyphicon-plus"></span></a> </div>
+        </div> <!-- /.col -->
+        </div> <!-- /.form-group -->     
+        <label class="col-md-3" for="table-1">Alternativas</label>
+         <table class="table table-striped table-bordered" id="table-1">
+            <thead>
+              <tr>
+                <th style="width: 20%">Ordem</th>
+                <th style="width: 70%">Descrição</th>       
+                <th style="width: 10%">Está correta?</th>           
+              </tr>
+            </thead>
+            <tr ng-repeat = "course in courses">
+              <td>{{course.Name}}</td>
+              <td>{{course.Description}}</td> 
+              <td><a href="#/admin/teacher/course/view/{{course.Id}}">Ver</a></td>                 
+            </tr>    
+          </table>
+
+
+        <div class="form-group" align="left">
+          <div class="col-md-7 col-md-push-3">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            &nbsp;
+            <button type="reset" ng-click="back()" class="btn btn-default">Cancelar</button>
+          </div> <!-- /.col -->
+        </div> <!-- /.form-group -->
+
+  </form>
+  </div>

@@ -140,6 +140,11 @@ app.config(['$routeProvider',
         controller: 'ViewCourse',
         authenticateTeacher: true   
       }).
+       when('/admin/teacher/question/create', {
+        templateUrl: 'app/admin/teacher/question/question.create.html',
+        controller: 'CreateQuestion',
+        authenticateTeacher: true         
+      }).
       otherwise({
         redirectTo: '/home'
       });
