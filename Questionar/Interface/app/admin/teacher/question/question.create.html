@@ -9,7 +9,7 @@
           <div class="col-md-7">
            <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" tabindex="1">
-              {{question.course.Name}}
+              {{question.Course.Name}}
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -37,7 +37,7 @@
         <div class="col-md-7">
           <textarea id="alternative_field" name="alternative" rows="6" class="form-control" tabindex="2" ng-model="alternative"></textarea>
             <br/>
-            <div align="rigth"> <a href="#" class="btn btn-xs btn-primary">Adicionar <span class="glyphicon glyphicon-plus"></span></a> </div>
+            <div align="rigth"> <a  class="btn btn-xs btn-primary" ng-click="addAlternative(alternative)">Adicionar <span class="glyphicon glyphicon-plus"></span></a> </div>
         </div> <!-- /.col -->
         </div> <!-- /.form-group -->     
         <label class="col-md-3" for="table-1">Alternativas</label>
@@ -49,10 +49,10 @@
                 <th style="width: 10%">Está correta?</th>           
               </tr>
             </thead>
-            <tr ng-repeat = "course in courses">
-              <td>{{course.Name}}</td>
-              <td>{{course.Description}}</td> 
-              <td><a href="#/admin/teacher/course/view/{{course.Id}}">Ver</a></td>                 
+            <tr ng-repeat = "alternative in question.Alternatives">
+              <td>{{alternative.Order}}</td>
+              <td>{{alternative.Description}}</td> 
+              <td><a ng-click="selectAlternative(alternative)">{{alternative.IsCorrect?"Sim":"Não"}}</a></td>                 
             </tr>    
           </table>
 

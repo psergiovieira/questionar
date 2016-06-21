@@ -6,27 +6,13 @@ namespace Data
 {
     public class Alternative : Infraestructure.Types.IIdentity
     {
-        private int _id;
-        public virtual int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        public virtual int Id { get; set; }
 
-        public virtual Question Question
-        {
-            get { return _question; }
-            set { _question = value; }
-        }
-        private Question _question;
+        public virtual Question Question { get; set; }
 
+        public virtual string Description { get; set; }
 
-        private string _description;
-        public virtual string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
+        public virtual Int32 Order { get; set; }
 
         public virtual bool IsCorrect { get; set; }
     }

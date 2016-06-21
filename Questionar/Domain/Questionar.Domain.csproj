@@ -41,8 +41,10 @@
   <ItemGroup>
     <Compile Include="Exceptions\QuestionarException.cs" />
     <Compile Include="Helper\Password.cs" />
+    <Compile Include="Manager\AlternativeManager.cs" />
     <Compile Include="Manager\CourseManager.cs" />
     <Compile Include="Manager\ExampleManager.cs" />
+    <Compile Include="Manager\QuestionManager.cs" />
     <Compile Include="Manager\SubscribeManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
