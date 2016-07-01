@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Infraestructure.Business;
-using Data;
+﻿using Data;
 using Domain.Exceptions;
 using Infraestructure;
+using Infraestructure.Business;
 using Infraestructure.UnitOfWork;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain.Manager
 {
@@ -39,5 +36,12 @@ namespace Domain.Manager
                 Repository.Create(alternative);
             }
         }
+
+        public List<Alternative> GetByQuestions(List<Question> questions)
+        {
+            var idsQuestions = questions.Select(c => c.Id).ToList();
+            return Repository.Query().Where(c => idsQuestions.Contains(c.Question.Id)).ToList();
+        }
+ 
     }
 }

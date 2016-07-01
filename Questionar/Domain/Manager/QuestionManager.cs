@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Data;
+﻿using Data;
+using Data.Security;
 using Domain.Exceptions;
+using Domain.Models;
 using Infraestructure;
 using Infraestructure.Business;
-using Infraestructure.Repository;
 using Infraestructure.UnitOfWork;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Domain.Manager
 {
@@ -33,6 +31,24 @@ namespace Domain.Manager
                 Repository.Create(question);
                 alternativeManager.Create(alternatives, question);
             });
+        }
+
+        public List<MQuestion> ListByTeacher(AlternativeManager alternativeManager, User teacher)
+        {
+            var questions = Repository.Query().Where(c => c.Course.Teacher.Id == teacher.Id).OrderByDescending(c=>c.Id).ToList();
+            var alternatives = alternativeManager.GetByQuestions(questions);
+
+            return GroupAlternatives(questions, alternatives);
+        }
+
+        public List<MQuestion> GroupAlternatives(List<Question> questions, List<Alternative> alternatives)
+        {
+            return questions.Select(c => new MQuestion()
+            {
+                Course = c.Course,
+                Description = c.Description,
+                Alternatives = alternatives.Where(a => a.Question.Id == c.Id).ToList()
+            }).ToList();
         }
     }
 }
