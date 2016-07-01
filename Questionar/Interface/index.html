@@ -66,11 +66,11 @@
             <a href="./index.html">Home</a>
           </li>    
 
-          <li class="">
+          <li class="" ng-if="!isAuthenticate">
             <a href="#/account-signup">Cadastre -se como Aluno </a>
           </li>      
 
-          <li class="">
+          <li class="" ng-if="!isAuthenticate">
             <a href="#/teacher-signup">Cadastre -se como Professor</a>
           </li>
           <li ng-if="!isAuthenticate">
