@@ -47,6 +47,7 @@
     <Compile Include="Manager\QuestionManager.cs" />
     <Compile Include="Manager\SubscribeManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Models\MQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
