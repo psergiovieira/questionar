@@ -4,7 +4,7 @@
 
 CREATE TABLE public.answer
 (
-  id integer NOT NULL DEFAULT nextval('answer_id_seq'::regclass),
+  id serial NOT NULL,
   id_user integer NOT NULL,
   id_alternative integer NOT NULL,
   created time without time zone NOT NULL,

@@ -4,7 +4,7 @@
 
 CREATE TABLE public.alternative
 (
-  id integer NOT NULL DEFAULT nextval('alternative_id_seq'::regclass),
+  id serial NOT NULL,
   id_question integer NOT NULL,
   description text NOT NULL,
   is_correct boolean NOT NULL,
