@@ -6,40 +6,16 @@ namespace Data
 {
     public class Course : Infraestructure.Types.IIdentity
     {
-        private int _id;
-        public virtual int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        public virtual int Id { get; set; }
 
-        public virtual string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        private string _name;
+        public virtual string Name { get; set; }
 
-        private string _description;
-        public virtual string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
+        public virtual string Description { get; set; }
 
-        private DateTime _created;
-        public virtual DateTime Created
-        {
-            get { return _created; }
-            set { _created = value; }
-        }
+        public virtual DateTime Created { get; set; }
 
-        private User _teacher;
+        public virtual User Teacher { get; set; }
 
-        public virtual User Teacher
-        {
-            get { return _teacher; }
-            set { _teacher = value; }
-        }
+        public virtual DateTime Start { get; set; }
     }
 }

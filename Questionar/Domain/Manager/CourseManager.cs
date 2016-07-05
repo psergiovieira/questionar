@@ -25,8 +25,10 @@ namespace Domain.Manager
 
             if (!course.Teacher.IsTeacher)
                 throw new QuestionarException("Apenas professores podem cadastrar disciplinas!");
+
             Transaction(() =>
             {
+                course.Start = course.Start != DateTime.MinValue ? course.Start : DateTime.MaxValue;
                 course.Created = DateTime.Now;
                 Repository.Create(course);
             });
