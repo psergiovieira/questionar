@@ -1,24 +1,42 @@
+ <link href="./css/quiz.css" rel="stylesheet">
 <div class="container">
     <br>
     <br>
     <h2 class="">Bem vindo {{user.Name}}</h2>
-    <h4>Buscar novo curso</h4>
+
     <div class="col-lg-9"> 
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Buscar por..." ng-keypress="($event.which === 13)?search():0" ng-model="inputSearch">
-            <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="search()">Pesquisar</button>
-          </span>
-        </div>
-        <br>
-        <br>
-        <div class="list-group" ng-repeat = "course in courses">
-          <a href="#/admin/student/subscribe/{{course.Id}}" class="list-group-item active">
-            <h4 class="list-group-item-heading">{{course.Name}}</h4>
-            <p class="list-group-item-text">{{course.Description}}</p>            
-          </a>
-          
-        </div>
+    <h4>Buscar novo curso</h4>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar por..." ng-keypress="($event.which === 13)?search():0" ng-model="inputSearch">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="search()">Pesquisar</button>
+              </span>
+            </div>
+            <br>
+            <br>
+            <div class="list-group" ng-repeat = "course in courses">
+              <a href="#/admin/student/subscribe/{{course.Id}}" class="list-group-item active">
+                <h4 class="list-group-item-heading">{{course.Name}}</h4>
+                <p class="list-group-item-text">{{course.Description}}</p>            
+              </a>
+              
+            </div>
+                   
+        <div class="modal-dialog">
+          <div class="modal-content">
+             <div class="modal-header">
+                <h3>{{question.Description}}</h3>
+            </div>
+            <div class="modal-body">
+               <div class="quiz" id="quiz" data-toggle="buttons">
+                   <label class="element-animation1 btn btn-lg btn-primary btn-block" ng-repeat="alternative in question.Alternatives"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">{{alternative.Description}}</label>
+              </div>
+       </div>
+       <div class="modal-footer text-muted">
+         <span id="answer"></span>
+       </div>
+
+        
     </div>
     <br>
     <br>

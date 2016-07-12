@@ -274,8 +274,8 @@ h6,
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #d74b4b;
-  border-color: #cc2d2d;
+  background-color: #4b4fd7;
+  border-color: #4b4fd7;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -575,18 +575,18 @@ fieldset[disabled] .btn-twitter.active {
   border-color: #28a4c9;
 }
 .btn-primary {
-  background-image: -webkit-linear-gradient(top, #d74b4b 0%, #bb2a2a 100%);
-  background-image: linear-gradient(to bottom, #d74b4b 0%, #bb2a2a 100%);
+  background-image: -webkit-linear-gradient(top, #4b4fd7 0%, #4b4fd7 100%);
+  background-image: linear-gradient(to bottom, #4b4fd7 0%, #4b4fd7 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd74b4b', endColorstr='#ffbb2a2a', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
-  border-color: #b32828;
+  border-color: #4b4fd7;
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #bb2a2a;
+  background-color: #4b4fd7;
   background-position: 0 -15px;
-  border-color: #b32828;
+  border-color: #4b4fd7;
 }
 .btn-primary:active,
 .btn-primary.active {

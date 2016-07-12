@@ -1,5 +1,5 @@
-privateModules.controller('CreateCourse', ['$scope', '$http', 'dialog', '$location' ,
-  function ($scope, $http, dialog, $location) {
+privateModules.controller('CreateCourse', ['$scope', '$http', 'dialog', '$location', '$rootScope' ,
+  function ($scope, $http, dialog, $location, $rootScope) {
 
 
 
@@ -9,14 +9,18 @@ privateModules.controller('CreateCourse', ['$scope', '$http', 'dialog', '$locati
 
 
   	$scope.save = function() {	
+      $rootScope.spinner = {active: true}
       var data = $scope.course;
+      data.Start = $scope.dt;
        $http({url: urlApi + 'Course/Post',method: 'POST', data: angular.toJson(data) })
        .success(function(result) {            
 
+             $rootScope.spinner = {active: false}
              dialog({message: result});  
 
             $location.path('/admin/teacher/home.html');
         }).error(function(result) {
+            $rootScope.spinner = {active: false}
             dialog({message: result.Message});           
         });  
 	};
