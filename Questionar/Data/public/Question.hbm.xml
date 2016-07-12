@@ -8,6 +8,6 @@
     </id>
     <property column="description" type="String" name="Description" not-null="true" length="1000" />
     <many-to-one name="Course" column="id_course" class="Data.Course,Data" />
-  
+    <property column="sent" type="Boolean" name="Sent" />
   </class>
 </hibernate-mapping>

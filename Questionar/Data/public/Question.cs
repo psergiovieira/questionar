@@ -11,5 +11,7 @@ namespace Data
         public virtual Course Course { get; set; }
 
         public virtual string Description { get; set; }
+
+        public virtual bool Sent { get; set; }
     }
 }
