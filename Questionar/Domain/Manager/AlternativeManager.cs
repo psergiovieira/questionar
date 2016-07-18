@@ -42,6 +42,10 @@ namespace Domain.Manager
             var idsQuestions = questions.Select(c => c.Id).ToList();
             return Repository.Query().Where(c => idsQuestions.Contains(c.Question.Id)).ToList();
         }
- 
+
+        public List<Alternative> GetByQuestion(Question question)
+        {
+            return Repository.Query().Where(c => c.Question.Id == question.Id).ToList();
+        }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
+using Data.Security;
+using Domain.Models;
 using Infraestructure;
 using Infraestructure.Business;
 using Infraestructure.UnitOfWork;
@@ -42,6 +44,20 @@ namespace Domain.Manager
                     }
                 }
             });
+        }
+
+        public MQuestion DailyQuestion(User user, AlternativeManager alternativeManager)
+        {
+            var question = Repository.Query().Where(c => c.User.Id == user.Id).Select(c => c.Question).FirstOrDefault();
+            if (question != null)
+                return new MQuestion()
+                {
+                    Course = question.Course,
+                    Description = question.Description,
+                    Alternatives = alternativeManager.GetByQuestion(question)
+                };
+
+            return null;
         }
     }
 }
