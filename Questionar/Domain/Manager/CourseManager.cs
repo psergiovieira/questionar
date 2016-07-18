@@ -49,5 +49,10 @@ namespace Domain.Manager
             var query = Repository.Query();           
             return query.Where(c => c.Name.ToLower().Contains(nameOrTeacher.ToLower()) || c.Teacher.Name.ToLower().Contains(nameOrTeacher.ToLower())).ToList();
         }
+
+        public List<Course> EnabledCourses()
+        {
+            return Repository.Query().Where(c => c.Start <= DateTime.Now).ToList();
+        }
     }
 }

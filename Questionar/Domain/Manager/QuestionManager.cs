@@ -35,7 +35,7 @@ namespace Domain.Manager
 
         public List<MQuestion> ListByTeacher(AlternativeManager alternativeManager, User teacher)
         {
-            var questions = Repository.Query().Where(c => c.Course.Teacher.Id == teacher.Id).OrderByDescending(c=>c.Id).ToList();
+            var questions = Repository.Query().Where(c => c.Course.Teacher.Id == teacher.Id).OrderByDescending(c => c.Id).ToList();
             var alternatives = alternativeManager.GetByQuestions(questions);
 
             return GroupAlternatives(questions, alternatives);
@@ -49,6 +49,29 @@ namespace Domain.Manager
                 Description = c.Description,
                 Alternatives = alternatives.Where(a => a.Question.Id == c.Id).ToList()
             }).ToList();
+        }
+
+        public List<Data.Question> QuestionsByCourse(List<Course> courses)
+        {
+            var questions = new List<Question>();
+            foreach (var course in courses)
+            {
+                var question = FirstToSendByCourse(course);
+                if (question != null)
+                    questions.Add(question);
+            }
+
+            return questions;
+        }
+
+        private Question FirstToSendByCourse(Course course)
+        {
+            return Repository.Query().Where(c => !c.Sent && c.Course.Id == course.Id).OrderBy(c => c.Id).FirstOrDefault();
+        }
+
+        public void Update(Question question)
+        {
+            Repository.Update(question);
         }
     }
 }

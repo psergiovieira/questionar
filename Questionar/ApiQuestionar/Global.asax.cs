@@ -96,26 +96,30 @@ namespace ApiQuestionar
                 ); 
             #endregion      
            
+            #region Jobs
             // construct a scheduler factory
             ISchedulerFactory schedulerFactory = new StdSchedulerFactory();
 
             // get a scheduler
             IScheduler sched = schedulerFactory.GetScheduler();
             sched.Start();
-     
+
             IJobDetail job = JobBuilder.Create<SendQuestion>()
                 .WithIdentity("sendQuestion")
                 .Build();
 
             // Trigger the job to run now, and then every 40 seconds
             ITrigger trigger = TriggerBuilder.Create()
+              .WithIdentity("sendQuestionTrigger")
               .StartNow()
               .WithSimpleSchedule(x => x
                   .WithIntervalInHours(24)
+                  //.WithIntervalInSeconds(60)para testes
                   .RepeatForever())
               .Build();
 
-            sched.ScheduleJob(job, trigger);
+            sched.ScheduleJob(job, trigger); 
+            #endregion
         }
     }
 }
