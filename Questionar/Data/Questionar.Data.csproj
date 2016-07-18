@@ -45,6 +45,7 @@
     <Compile Include="public\Course.cs" />
     <Compile Include="public\Question.cs" />
     <Compile Include="public\Subscription.cs" />
+    <Compile Include="public\UserQuestion.cs" />
     <Compile Include="security\User.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="public\Answer.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="public\UserQuestion.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
