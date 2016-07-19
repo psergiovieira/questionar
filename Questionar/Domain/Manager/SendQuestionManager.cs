@@ -38,12 +38,29 @@ namespace Domain.Manager
                         };
 
                         Repository.Create(userQuestion);
-
-                        question.Sent = true;
-                        questionManager.Update(question);
                     }
+
+                    question.Sent = true;
+                    questionManager.Update(question);
                 }
             });
+        }
+
+        public void SendQuestion(User user, Course course, QuestionManager questionManager)
+        {
+            var question = questionManager.Repository.Query().FirstOrDefault(c => c.Course.Id == course.Id && c.SentDate.Date == DateTime.Now.Date && c.Sent);
+            if (question != null)
+            {
+                var userQuestion = new UserQuestion
+                {
+                    Question = question,
+                    User = user,
+                    Created = DateTime.Now
+                };
+
+                Repository.Create(userQuestion);
+            }
+
         }
 
         public MQuestion DailyQuestion(User user, AlternativeManager alternativeManager)

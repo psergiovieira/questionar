@@ -13,5 +13,7 @@ namespace Data
         public virtual string Description { get; set; }
 
         public virtual bool Sent { get; set; }
+
+        public virtual DateTime SentDate { get; set; }
     }
 }

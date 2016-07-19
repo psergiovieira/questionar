@@ -19,7 +19,7 @@ namespace Domain.Manager
         {
         }
 
-        public void Subscribe(User user, Course course)
+        public void Subscribe(User user, Course course, SendQuestionManager sendQuestionManager, QuestionManager _questionManager)
         {
             if (user.IsTeacher)
                 throw new QuestionarException("Apenas alunos podem se cadastrar em disciplinas.");
@@ -36,8 +36,9 @@ namespace Domain.Manager
                     Entered = DateTime.Now,
                     Student = user
                 };
-
+                
                 Repository.Create(subscription);
+                sendQuestionManager.SendQuestion(user, course, _questionManager);
             });
         }
 

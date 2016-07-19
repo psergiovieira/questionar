@@ -22,6 +22,9 @@ namespace UnitTestDomain
         private SubscribeManager _manager;
         private Course _course;
         private User _student;
+        private SendQuestionManager _sendQuestionManager;
+        private QuestionManager _questionManager;
+
 
         [TestInitialize]
         public void Initialize()
@@ -29,6 +32,13 @@ namespace UnitTestDomain
             _mockRepository = new Mock<IRepository<Subscription>>();
             _mockUnitOfWork = new Mock<IUnitOfWork>();
             _manager = new SubscribeManager(_mockRepository.Object, _mockUnitOfWork.Object);
+
+            var mockRepositorySendQuestion = new Mock<IRepository<UserQuestion>>();
+            _sendQuestionManager = new SendQuestionManager(mockRepositorySendQuestion.Object,_mockUnitOfWork.Object);
+
+            var _mockRepositoryQuestion = new Mock<IRepository<Question>>();
+            _questionManager = new QuestionManager(_mockRepositoryQuestion.Object, _mockUnitOfWork.Object);
+
             _student = new User() { Id = 1, IsTeacher = false, Name = "Professor", Active = true };
             _course = new Course()
             {
@@ -49,7 +59,7 @@ namespace UnitTestDomain
         [TestMethod]
         public void CanISubscribe()
         {
-            _manager.Subscribe(_student, _course);
+            _manager.Subscribe(_student, _course, _sendQuestionManager, _questionManager);
         }
 
         [TestMethod]
@@ -59,7 +69,7 @@ namespace UnitTestDomain
             var subscriptions = new List<Subscription> { new Subscription { Course = _course, Student = _student } };
 
             _mockRepository.Setup(x => x.Query(null, null)).Returns(subscriptions.AsQueryable());
-            _manager.Subscribe(_student, _course);
+            _manager.Subscribe(_student, _course, _sendQuestionManager, _questionManager);
         }
 
         [TestMethod]
@@ -67,7 +77,7 @@ namespace UnitTestDomain
         public void CanISubscribeLikeTeacher()
         {
             _student.IsTeacher = true;
-            _manager.Subscribe(_student, _course);
+            _manager.Subscribe(_student, _course, _sendQuestionManager, _questionManager);
         }
 
         [TestMethod]
@@ -75,7 +85,7 @@ namespace UnitTestDomain
         public void CanISubscribeWithInativeUser()
         {
             _student.Active = false;
-            _manager.Subscribe(_student, _course);
+            _manager.Subscribe(_student, _course, _sendQuestionManager, _questionManager);
         }
     }
 }
