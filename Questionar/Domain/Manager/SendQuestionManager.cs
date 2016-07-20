@@ -41,6 +41,7 @@ namespace Domain.Manager
                     }
 
                     question.Sent = true;
+                    question.SentDate = DateTime.Now;
                     questionManager.Update(question);
                 }
             });
