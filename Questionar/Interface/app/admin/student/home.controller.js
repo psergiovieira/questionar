@@ -6,6 +6,7 @@ privateModules.controller('HomeStudent', ['$scope', '$http', 'dialog','$rootScop
    $scope.inputSearch = '';
    $scope.courses = {};
    $scope.newQuestion = false;
+   $scope.answer = null;
    loadQuestion();   
 
 
@@ -37,5 +38,13 @@ privateModules.controller('HomeStudent', ['$scope', '$http', 'dialog','$rootScop
             $rootScope.spinner = {active: false};
         }); 
 	}
+
+  $scope.reply = function(){
+    alert($scope.answer.Description);
+  }
+
+   $scope.selectAnswer = function (alternative) { 
+      $scope.answer = alternative;      
+   }
 	
   }]);

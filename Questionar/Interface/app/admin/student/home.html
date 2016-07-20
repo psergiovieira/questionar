@@ -29,8 +29,10 @@
             </div>
             <div class="modal-body">
                <div class="quiz" id="quiz" data-toggle="buttons">
-                   <label class="element-animation1 btn btn-lg btn-primary btn-block" ng-repeat="alternative in question.Alternatives"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="1">{{alternative.Description}}</label>
+                   <label class="element-animation1 btn btn-lg btn-primary btn-block" ng-click="selectAnswer(alternative)" ng-repeat="alternative in question.Alternatives"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer" value="{{alternative.Id}}" >{{alternative.Description}}</label>
               </div>
+
+              <div align="right"><a ng-click="reply()" class="btn btn-lg btn-success" style="margin-top: 15px;"><span class="glyphicon glyphicon-ok"></span> Responder</a></div>
        </div>
        <div class="modal-footer text-muted">
          <span id="answer"></span>
