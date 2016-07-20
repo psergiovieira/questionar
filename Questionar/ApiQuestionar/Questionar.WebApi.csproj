@@ -143,6 +143,7 @@
     <Compile Include="Auth\PasswordHasher.cs" />
     <Compile Include="Auth\UserStore.cs" />
     <Compile Include="Auxiliary\ApiControllerExtensions.cs" />
+    <Compile Include="Controllers\AnswerController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\ExampleController.cs" />

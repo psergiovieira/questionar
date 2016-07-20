@@ -24,9 +24,10 @@ namespace ApiQuestionar.Controllers
         public IHttpActionResult Post(Alternative alternative)
         {
             var alternativeManager = new AlternativeManager(new NHibernateRepository<Alternative>(UnitOfWork), UnitOfWork);
+            var result = _manager.Reply(alternative.Id,this.GetUser(),alternativeManager);
+            var response = result ? "Você acertou. Parabéns!" : "Resposta errada! Não desanime, continue estudando.";
 
-            _manager.Reply(alternative.Id,this.GetUser(),alternativeManager);
-            return Ok("Questão cadastrada com sucesso!");
+            return Ok(response);
         }
     }
 }
