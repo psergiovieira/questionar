@@ -19,11 +19,11 @@ namespace Domain.Manager
         {
         }
 
-        public bool Reply(int idAlternative, User student, AlternativeManager alternativeManager)
+        public bool Reply(int idAlternative, User student, AlternativeManager alternativeManager, SendQuestionManager sendQuestionManager)
         {
             var alternative = alternativeManager.Repository.GetById(idAlternative);
-                if (alternative == null)
-                    throw new QuestionarException("Alternativa inválida");
+            if (alternative == null)
+                throw new QuestionarException("Alternativa inválida");
 
             Transaction(() =>
             {
@@ -35,6 +35,7 @@ namespace Domain.Manager
                 };
 
                 Repository.Create(answer);
+                sendQuestionManager.AnswerQuestion(student, alternative.Question);
             });
 
             return alternative.IsCorrect;

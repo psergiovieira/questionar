@@ -46,9 +46,9 @@ privateModules.controller('HomeStudent', ['$scope', '$http', 'dialog','$rootScop
        $http({url: urlApi + 'Answer/Post',method: 'POST', data: angular.toJson(data) })
        .success(function(result) {
 
-             dialog({message: result});  
-             $rootScope.spinner = {active: false}      
-             loadQuestion();                   
+             dialog({message: result});                  
+             loadQuestion();           
+             $rootScope.spinner = {active: false}           
         }).error(function(result) {
 
             $rootScope.spinner = {active: false}

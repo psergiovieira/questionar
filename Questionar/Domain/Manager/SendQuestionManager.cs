@@ -80,5 +80,12 @@ namespace Domain.Manager
 
             return null;
         }
+
+        public void AnswerQuestion(User user, Question question)
+        {
+            var questionDay = Repository.Query().FirstOrDefault(c => c.Question.Id == question.Id && c.User.Id == user.Id);
+            questionDay.Answered = true;
+            Repository.Update(questionDay);
+        }
     }
 }
