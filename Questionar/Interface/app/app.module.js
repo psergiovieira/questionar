@@ -55,9 +55,11 @@ function Run($rootScope, $http, $location) {
         };
 
         $rootScope.logout = function() {
-            $http({url: urlApi + 'User/LogOut',method: 'POST'}).success(function(resposta) {                
+            $http({url: urlApi + 'User/LogOut',method: 'POST'}).success(function(resposta) {  
+
+                $rootScope.clear();              
                 $location.path('/#');
-                $rootScope.clear();
+                
             }).error(function() {
                 $rootScope.clear();
             });
