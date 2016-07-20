@@ -65,7 +65,10 @@ namespace Domain.Manager
 
         public MQuestion DailyQuestion(User user, AlternativeManager alternativeManager)
         {
-            var question = Repository.Query().Where(c => c.User.Id == user.Id && c.Question.SentDate.Date == DateTime.Now.Date).Select(c => c.Question).FirstOrDefault();
+            var question = Repository.Query()
+                .Where(c => c.User.Id == user.Id && c.Question.SentDate.Date == DateTime.Now.Date && !c.Answered)
+                .Select(c => c.Question).FirstOrDefault();
+
             if (question != null)
                 return new MQuestion()
                 {

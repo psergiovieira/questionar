@@ -9,5 +9,6 @@
     <many-to-one name="Question" column="id_question" class="Data.Question,Data" />
     <many-to-one name="User" column="id_user" class="Data.Security.User,Data" />
     <property name="Created" column="created" type="DateTime"  not-null="true" />
+    <property column="answered" type="Boolean" name="Answered" not-null="true" />
   </class>
 </hibernate-mapping>

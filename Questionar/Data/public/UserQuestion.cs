@@ -13,5 +13,7 @@ namespace Data
         public virtual User User { get; set; }
 
         public virtual DateTime Created { get; set; }
+
+        public virtual bool Answered { get; set; }
     }
 }
