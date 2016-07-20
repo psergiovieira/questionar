@@ -17,7 +17,8 @@ privateModules.controller('HomeStudent', ['$scope', '$http', 'dialog','$rootScop
        if(result != null){
           $scope.question = result;
           $scope.newQuestion = true;
-       }      
+       } else $scope.newQuestion = false;
+            
                       
         $rootScope.spinner = {active: false}
         }).error(function(result) {
@@ -39,8 +40,20 @@ privateModules.controller('HomeStudent', ['$scope', '$http', 'dialog','$rootScop
         }); 
 	}
 
-  $scope.reply = function(){
-    alert($scope.answer.Description);
+  $scope.reply = function(){    
+    $rootScope.spinner = {active: true}
+       var data = $scope.answer;
+       $http({url: urlApi + 'Answer/Post',method: 'POST', data: angular.toJson(data) })
+       .success(function(result) {
+
+             dialog({message: result});  
+             $rootScope.spinner = {active: false}      
+             loadQuestion();                   
+        }).error(function(result) {
+
+            $rootScope.spinner = {active: false}
+            dialog({message: result.Message});           
+        });
   }
 
    $scope.selectAnswer = function (alternative) { 
