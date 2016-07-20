@@ -15,5 +15,7 @@ namespace Data
         public virtual bool Sent { get; set; }
 
         public virtual DateTime SentDate { get; set; }
+
+        public virtual int Order { get; set; }
     }
 }

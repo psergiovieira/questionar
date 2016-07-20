@@ -24,7 +24,7 @@ namespace Domain.Manager
             Transaction(() =>
             {
                 var courses = courseManager.EnabledCourses();
-                var questions = questionManager.QuestionsByCourse(courses);
+                var questions = questionManager.FirstQuestionsByCourse(courses);
                 foreach (var question in questions)
                 {
                     var users = subscribeManager.UsersByCourse(question.Course);
@@ -65,7 +65,7 @@ namespace Domain.Manager
 
         public MQuestion DailyQuestion(User user, AlternativeManager alternativeManager)
         {
-            var question = Repository.Query().Where(c => c.User.Id == user.Id && c.Question.SentDate == DateTime.Now).Select(c => c.Question).FirstOrDefault();
+            var question = Repository.Query().Where(c => c.User.Id == user.Id && c.Question.SentDate.Date == DateTime.Now.Date).Select(c => c.Question).FirstOrDefault();
             if (question != null)
                 return new MQuestion()
                 {

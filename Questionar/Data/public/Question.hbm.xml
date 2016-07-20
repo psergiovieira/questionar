@@ -10,5 +10,6 @@
     <many-to-one name="Course" column="id_course" class="Data.Course,Data" />
     <property column="sent" type="Boolean" name="Sent" />
     <property column="sent_date" type="DateTime" name="SentDate" />
+    <property column="question_order" type="Int32" name="Order" />
   </class>
 </hibernate-mapping>

@@ -28,9 +28,22 @@ namespace Domain.Manager
                     throw new QuestionarException("Descrição é um campo obrigatório.");
 
                 question.Course = course;
+                question.Order = Order(question);
                 Repository.Create(question);
                 alternativeManager.Create(alternatives, question);
             });
+        }
+
+        public int Order(Question question)
+        {
+            var firstOrDefault = Repository.Query()
+                .Where(c => c.Course.Id == question.Course.Id)
+                .OrderBy(c => c.Order)
+                .FirstOrDefault();
+            if (firstOrDefault != null)
+                return firstOrDefault
+                        .Order + 1;
+            return 1;
         }
 
         public List<MQuestion> ListByTeacher(AlternativeManager alternativeManager, User teacher)
@@ -51,7 +64,7 @@ namespace Domain.Manager
             }).ToList();
         }
 
-        public List<Data.Question> QuestionsByCourse(List<Course> courses)
+        internal List<Data.Question> FirstQuestionsByCourse(List<Course> courses)
         {
             var questions = new List<Question>();
             foreach (var course in courses)
@@ -66,7 +79,7 @@ namespace Domain.Manager
 
         private Question FirstToSendByCourse(Course course)
         {
-            return Repository.Query().Where(c => !c.Sent && c.Course.Id == course.Id).OrderBy(c => c.Id).FirstOrDefault();
+            return Repository.Query().Where(c => !c.Sent && c.Course.Id == course.Id).OrderBy(c => c.Order).FirstOrDefault();
         }
 
         public void Update(Question question)
