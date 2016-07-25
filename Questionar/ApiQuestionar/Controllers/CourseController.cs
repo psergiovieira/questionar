@@ -48,7 +48,9 @@ namespace ApiQuestionar.Controllers
             {
                 Id = course.Id,
                 Name = course.Name,
-                Description = course.Description
+                Description = course.Description,
+                Teacher = course.Teacher.Name,
+                Start = course.Start.Date.ToString("dd-MM-yyyy")
             };
 
             return Ok(result);
