@@ -16,7 +16,7 @@
             <div class="col-sm-6 col-md-3">
               <div class="row-stat">
                 <p class="row-stat-label">Quantidade de cursos</p>
-                <h3 class="row-stat-value">5</h3>
+                <h3 class="row-stat-value">{{dataCourses.CoursesCount}}</h3>
              
               </div> <!-- /.row-stat -->
             </div> <!-- /.col -->
@@ -24,21 +24,21 @@
             <div class="col-sm-6 col-md-3">
               <div class="row-stat">
                 <p class="row-stat-label">Número de alunos inscritos</p>
-                <h3 class="row-stat-value">500</h3>                
+                <h3 class="row-stat-value">{{dataCourses.Subscribers}}</h3>                
               </div> <!-- /.row-stat -->
             </div> <!-- /.col -->
 
             <div class="col-sm-6 col-md-3">
               <div class="row-stat">
                 <p class="row-stat-label">Total de questões corretas</p>
-                <h3 class="row-stat-value">100</h3>                
+                <h3 class="row-stat-value">{{dataCourses.CorrectAnswers}}</h3>                
               </div> <!-- /.row-stat -->
             </div> <!-- /.col -->
 
             <div class="col-sm-6 col-md-3">
               <div class="row-stat">
                 <p class="row-stat-label">Total de questões erradas</p>
-                <h3 class="row-stat-value">19</h3>                
+                <h3 class="row-stat-value">{{dataCourses.WrongAnswers}}</h3>                
               </div> <!-- /.row-stat -->
             </div> <!-- /.col -->
             
@@ -63,24 +63,18 @@
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Mais fáceis</th>
-                    <th >Mais difíceis</th>
-                    <th >Melhores alunos</th>                 
+                    <th>Mais Fácil</th>
+                    <th >Mais Difícil</th>
+                    <th >Melhor aluno</th>                 
                   </tr>
                 </thead>
 
                 <tbody>
                   <tr>
-                    <td>Quanto é 1 + 1?</td>
-                    <td >Quanto é a raiz quadrada de 8915?</td>
-                    <td >Paulo</td>
-                  </tr>
-
-                  <tr>
-                    <td>Quanto é 5 - 2?</td>
-                    <td >Quanto é 9798 * 58282?</td>
-                    <td >Sérgio</td>
-                  </tr>    
+                    <td>{{dataCourses.EasierQuestion}}</td>
+                    <td >{{dataCourses.HardestQuestion}}</td>
+                    <td >{{dataCourses.BetterStudent}}</td>
+                  </tr>         
                 </tbody>
               </table>
 

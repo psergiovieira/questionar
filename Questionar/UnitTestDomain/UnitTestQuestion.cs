@@ -18,10 +18,13 @@ namespace UnitTestDomain
         private Mock<IRepository<Question>> _mockRepository;
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private Mock<IRepository<Alternative>> _mockAlternative;
-
+        private Mock<IRepository<UserQuestion>> _mockUserQuestion;
+        private Mock<IRepository<Subscription>> _mockSubscribe;
 
         private QuestionManager _manager;
         private AlternativeManager _alternativeManager;
+        private SendQuestionManager _sendQuestionManager;
+        private SubscribeManager _subscribeManager;
         private Course _course;
         private User _teacher;
         private Question _question;
@@ -34,9 +37,18 @@ namespace UnitTestDomain
             _mockUnitOfWork = new Mock<IUnitOfWork>();
             _manager = new QuestionManager(_mockRepository.Object, _mockUnitOfWork.Object);
 
-            
+
+            var unitOfWorkAlternative = new Mock<IUnitOfWork>();
             _mockAlternative = new Mock<IRepository<Alternative>>();
-            _alternativeManager = new AlternativeManager(_mockAlternative.Object, _mockUnitOfWork.Object);
+            _alternativeManager = new AlternativeManager(_mockAlternative.Object, unitOfWorkAlternative.Object);
+
+            var unitOfWorkSendQuestion = new Mock<IUnitOfWork>();
+            _mockUserQuestion = new Mock<IRepository<UserQuestion>>();
+            _sendQuestionManager = new SendQuestionManager(_mockUserQuestion.Object, unitOfWorkSendQuestion.Object);
+            
+            _mockSubscribe = new Mock<IRepository<Subscription>>();
+            var unitOfWorkSubscribe = new Mock<IUnitOfWork>();
+            _subscribeManager = new SubscribeManager(_mockSubscribe.Object, _mockUnitOfWork.Object);
 
             _teacher = new User() { Id = 1, IsTeacher = true, Name = "Professor" };
             _course = new Course()
@@ -93,14 +105,14 @@ namespace UnitTestDomain
         [TestMethod]
         public void CanAddQuestion()
         {
-            _manager.Create(_alternativeManager,_question,_course,_alternatives);
+            _manager.Create(_alternativeManager,_sendQuestionManager, _subscribeManager, _question,_course,_alternatives);
         }
 
         [TestMethod]
         [ExpectedException(typeof(QuestionarException))]
         public void TestEmptyFields()
         {
-            _manager.Create(_alternativeManager, new Question(), _course, _alternatives);
+            _manager.Create(_alternativeManager, _sendQuestionManager, _subscribeManager, new Question(), _course, _alternatives);
         }
     }
 }

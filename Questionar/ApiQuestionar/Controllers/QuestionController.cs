@@ -10,13 +10,17 @@ namespace ApiQuestionar.Controllers
 {
     public class QuestionController : BaseController<Question>
     {
-        private QuestionManager _manager;
-        private AlternativeManager _alternativeManager;
+        private readonly QuestionManager _manager;
+        private readonly AlternativeManager _alternativeManager;
+        private readonly SendQuestionManager _sendQuestionManager;
+        private readonly SubscribeManager _subscribeManager;
 
         public QuestionController()
         {
             _manager = new QuestionManager(Repository, UnitOfWork);
             _alternativeManager = new AlternativeManager(new NHibernateRepository<Alternative>(UnitOfWork), UnitOfWork);
+            _sendQuestionManager = new SendQuestionManager(new NHibernateRepository<UserQuestion>(UnitOfWork), UnitOfWork);
+            _subscribeManager = new SubscribeManager(new NHibernateRepository<Subscription>(UnitOfWork), UnitOfWork);
         }
 
         [HttpPost]
@@ -29,7 +33,7 @@ namespace ApiQuestionar.Controllers
                 Description = args.Description
             };
 
-            _manager.Create(_alternativeManager, question, args.Course, args.Alternatives);
+            _manager.Create(_alternativeManager, _sendQuestionManager, _subscribeManager, question, args.Course, args.Alternatives);
             return Ok("Questão cadastrada com sucesso!");
         }
 
@@ -42,7 +46,7 @@ namespace ApiQuestionar.Controllers
             {
                 Description = c.Description,
                 Course = new Course() { Description = c.Course.Description, Name = c.Course.Name },
-                Alternatives = c.Alternatives.OrderBy(a=>a.Order).Select(a => new Alternative() { Description = a.Description, Id = a.Id, Order = a.Order}).ToList()
+                Alternatives = c.Alternatives.OrderBy(a=>a.Order).Select(a => new Alternative() { Description = a.Description, Id = a.Id, Order = a.Order, IsCorrect = a.IsCorrect}).ToList()
             }).ToList();
 
             return Ok(result);

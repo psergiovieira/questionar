@@ -7,7 +7,14 @@
         </h3>
         <div class="well">   
             <h4>Alternativas:</h4>         
-            <p ng-repeat = "alternative in question.Alternatives">{{alternative.Description}}</p>
+            <ul ng-repeat="alternative in question.Alternatives">
+              <li>
+                <span class="label label-success" ng-show="alternative.IsCorrect">
+                  {{alternative.Description}}
+                 </span> 
+                 <p ng-show="!alternative.IsCorrect">{{alternative.Description}}</p>
+              </li>
+            </ul>
 
             <br>
           </div> <!-- /.well -->

@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using System;
+using Data;
 using Data.Security;
 using Domain.Exceptions;
 using Domain.Models;
@@ -17,7 +18,7 @@ namespace Domain.Manager
         {
         }
 
-        public void Create(AlternativeManager alternativeManager, Question question, Course course, List<Alternative> alternatives)
+        public void Create(AlternativeManager alternativeManager, SendQuestionManager sendQuestionManager, SubscribeManager subscribeManager, Question question, Course course, List<Alternative> alternatives)
         {
             Transaction(() =>
             {
@@ -31,6 +32,23 @@ namespace Domain.Manager
                 question.Order = Order(question);
                 Repository.Create(question);
                 alternativeManager.Create(alternatives, question);
+
+                var isTheFirst = !Repository.Query().Any(c => c.Id != question.Id && c.Course.Id == course.Id);
+                if (isTheFirst)
+                {
+                    SendFirstQuestion(subscribeManager, sendQuestionManager, course, question);
+                    question.Sent = true;
+                    question.SentDate = DateTime.Now;
+                }
+            });
+        }
+
+        public void SendFirstQuestion(SubscribeManager subscribeManager, SendQuestionManager sendQuestionManager, Course course, Question question)
+        {
+            var users = subscribeManager.UsersByCourse(course);
+            users.ForEach(user =>
+            {
+                sendQuestionManager.SendQuestion(user, course, question);
             });
         }
 

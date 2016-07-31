@@ -8,7 +8,7 @@ namespace ApiQuestionar.Controllers
 {
     public class CourseController : BaseController<Course>
     {
-        public CourseManager _manager;
+        private readonly CourseManager _manager;
 
         public CourseController()
         {

@@ -64,6 +64,21 @@ namespace Domain.Manager
 
         }
 
+        public void SendQuestion(User user, Course course, Question question)
+        {
+            if (question != null)
+            {
+                var userQuestion = new UserQuestion
+                {
+                    Question = question,
+                    User = user,
+                    Created = DateTime.Now
+                };
+
+                Repository.Create(userQuestion);
+            }
+        }
+
         public MQuestion DailyQuestion(User user, AlternativeManager alternativeManager)
         {
             var question = Repository.Query()
