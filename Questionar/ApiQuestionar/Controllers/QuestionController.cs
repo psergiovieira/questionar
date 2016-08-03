@@ -45,6 +45,7 @@ namespace ApiQuestionar.Controllers
             var user = this.GetUser();
             var result = _manager.ListByTeacher(_alternativeManager, user).Select(c => new 
             {
+                c.Id,
                 Description = c.Description,
                 Course = new Course() { Description = c.Course.Description, Name = c.Course.Name },
                 SentDate = c.Sent ? c.SentDate.Date.ToString("dd-MM-yyyy") : "Não enviada.",

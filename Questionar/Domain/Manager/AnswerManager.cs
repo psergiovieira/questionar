@@ -20,6 +20,11 @@ namespace Domain.Manager
         {
         }
 
+        public List<Answer> GetResponses(int idQuestion)
+        {
+            return Repository.Query().Where(c => c.Alternative.Question.Id == idQuestion).ToList();
+        }
+
         public bool Reply(int idAlternative, User student, AlternativeManager alternativeManager, SendQuestionManager sendQuestionManager)
         {
             var alternative = alternativeManager.Repository.GetById(idAlternative);

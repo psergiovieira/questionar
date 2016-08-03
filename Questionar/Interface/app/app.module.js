@@ -152,6 +152,11 @@ app.config(['$routeProvider',
        controller: 'ListQuestion',
        authenticateTeacher: true         
       }).
+        when('/admin/teacher/question/answer/list/:id', {
+        templateUrl: 'app/admin/teacher/question/answer/answer.list.html',
+        controller: 'ListAnswer',
+        authenticateTeacher: true   
+      }).
       otherwise({
         redirectTo: '/home'
       });

@@ -76,6 +76,7 @@ namespace Domain.Manager
         {
             return questions.Select(c => new MQuestion()
             {
+                Id = c.Id,
                 Course = c.Course,
                 Description = c.Description,
                 Alternatives = alternatives.Where(a => a.Question.Id == c.Id).ToList(),

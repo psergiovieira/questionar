@@ -30,5 +30,23 @@ namespace ApiQuestionar.Controllers
 
             return Ok(response);
         }
+
+        [HttpGet]
+        [Authorize]
+        public IHttpActionResult Get(int idQuestion)
+        {
+            var user = this.GetUser();
+            var result = _manager.GetResponses(idQuestion).Select(c => new
+            {
+                Id = c.Id,
+                StudentName = c.Student.Name,
+                Alternative = c.Alternative.Description,
+                Date = c.Created.ToString("dd-MM-yyyy"),
+                c.Alternative.IsCorrect,
+                Question = c.Alternative.Question.Description
+            });
+
+            return Ok(result);
+        }
     }
 }

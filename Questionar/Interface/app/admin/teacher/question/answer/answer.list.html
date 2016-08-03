@@ -1,0 +1,13 @@
+ <div ng-include src="'././app/admin/teacher/menu.html'"></div>
+ <div class="container" >
+    <div class="portlet" ng-repeat = "answer in answers">
+      <p><b>Aluno: </b>{{answer.StudentName}}</p> 
+      <p><b>Alternativa: </b>{{answer.Alternative}}</p> 
+      <p><b>Está correta: </b>{{answer.IsCorrect ? "Sim" : "Não"}}</p> 
+      <p><b>Data da resposta: </b>{{answer.Date}}</p> 
+
+      </div> <!-- /.well -->          
+
+    </div> <!-- /.portlet -->
+      <div align="right"><a data-toggle="modal" ng-click="back()" class="btn btn-primary demo-element">Voltar</a></div>
+  </div>

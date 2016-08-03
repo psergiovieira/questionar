@@ -6,6 +6,7 @@ namespace Domain.Models
 {
     public class MQuestion
     {
+        public int Id { get; set; }
         public Course Course { get; set; }
 
         public string Description { get; set; }
