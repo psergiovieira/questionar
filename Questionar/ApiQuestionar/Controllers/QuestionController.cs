@@ -1,4 +1,5 @@
-﻿using ApiQuestionar.Auxiliary;
+﻿using System;
+using ApiQuestionar.Auxiliary;
 using Data;
 using Domain.Manager;
 using Domain.Models;
@@ -42,10 +43,12 @@ namespace ApiQuestionar.Controllers
         public IHttpActionResult Get()
         {
             var user = this.GetUser();
-            var result = _manager.ListByTeacher(_alternativeManager, user).Select(c => new MQuestion()
+            var result = _manager.ListByTeacher(_alternativeManager, user).Select(c => new 
             {
                 Description = c.Description,
                 Course = new Course() { Description = c.Course.Description, Name = c.Course.Name },
+                SentDate = c.Sent ? c.SentDate.Date.ToString("dd-MM-yyyy") : "Não enviada.",
+                Sent = c.Sent,
                 Alternatives = c.Alternatives.OrderBy(a=>a.Order).Select(a => new Alternative() { Description = a.Description, Id = a.Id, Order = a.Order, IsCorrect = a.IsCorrect}).ToList()
             }).ToList();
 

@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using System;
+using Data;
 using System.Collections.Generic;
 
 namespace Domain.Models
@@ -10,5 +11,9 @@ namespace Domain.Models
         public string Description { get; set; }
 
         public List<Alternative> Alternatives { get; set; }
+
+        public DateTime SentDate { get; set; }
+
+        public bool Sent { get; set; }
     }
 }

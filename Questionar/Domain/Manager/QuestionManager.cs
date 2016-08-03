@@ -78,7 +78,9 @@ namespace Domain.Manager
             {
                 Course = c.Course,
                 Description = c.Description,
-                Alternatives = alternatives.Where(a => a.Question.Id == c.Id).ToList()
+                Alternatives = alternatives.Where(a => a.Question.Id == c.Id).ToList(),
+                SentDate = c.SentDate,
+                Sent = c.Sent
             }).ToList();
         }
 
