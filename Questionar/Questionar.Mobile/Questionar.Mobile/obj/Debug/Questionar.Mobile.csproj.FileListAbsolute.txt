@@ -1,13 +1,13 @@
+D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Questionar.Mobile.Questionar.Mobile-Signed.apk
+D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\drawable\loginbox.9.png
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Questionar.Mobile.dll
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Questionar.Mobile.pdb
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Questionar.Mobile.Questionar.Mobile.apk
-D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Questionar.Mobile.Questionar.Mobile-Signed.apk
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Newtonsoft.Json.dll
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\bin\Debug\Newtonsoft.Json.xml
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\Questionar.Mobile.dll
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\Questionar.Mobile.pdb
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\android\bin\Questionar.Mobile.Questionar.Mobile.apk
-D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\layout\layout1.xml
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\layout\main.xml
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\values\strings.xml
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\drawable\icon.png
@@ -15,7 +15,6 @@ D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\color\disabledtext.xml
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\values\colors.xml
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\drawable\login_button.xml
-D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\drawable\loginbox.9.png
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\drawable\xamarintitle.png
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\res\drawable\questionmark.png
 D:\workspace\questionar\Questionar\Questionar.Mobile\Questionar.Mobile\obj\Debug\R.cs.flag

@@ -27,20 +27,14 @@ namespace Questionar.Mobile
             ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
 
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.layout1);
-
-            //Initializing button from layout
-            //Button login = FindViewById<Button>(Resource.Id.login);
-           
+            SetContentView(Resource.Layout.Main);
+            var login = FindViewById<Button>(Resource.Id.logIn);
 
             ////Login button click action
-            //login.Click += async (object sender, EventArgs e) =>
-            //{
-            //    //var json = RestAsync(URL + "Example/Get");
-
-              
-            //    await LoginAsync();
-            //};
+            login.Click += async (object sender, EventArgs e) =>
+            {
+               await LoginAsync();
+            };
         }
 
         public async Task LoginAsync()
@@ -53,7 +47,7 @@ namespace Questionar.Mobile
 
                 var client = new HttpClient();
                 client.MaxResponseContentBufferSize = 256000;
-                var uri = new Uri(URL  + "User/Login");
+                var uri = new Uri(URL + "User/Login");
                 var json = JsonConvert.SerializeObject(user);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = null;
@@ -62,12 +56,11 @@ namespace Questionar.Mobile
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Android.Widget.Toast.MakeText(this, "Login com sucesso!", Android.Widget.ToastLength.Short)
-                        .Show();
+                    Android.Widget.Toast.MakeText(this, "Login com sucesso!", Android.Widget.ToastLength.Short).Show();
                 }
                 else
                 {
-                    Android.Widget.Toast.MakeText(this, "Senha ou usuário errados!", Android.Widget.ToastLength.Short).Show();
+                    Android.Widget.Toast.MakeText(this, "Falha ao logar, por favor, tente mais tarde.", Android.Widget.ToastLength.Short).Show();
                 }
             }
             catch (Exception ex)
