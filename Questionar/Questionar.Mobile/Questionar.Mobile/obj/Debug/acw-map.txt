@@ -1,0 +1,4 @@
+Questionar.Mobile.MainActivity, Questionar.Mobile;md50dc1ffbaf085e24d59f018a67c15d320.MainActivity
+Questionar.Mobile.MainActivity, Questionar.Mobile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md50dc1ffbaf085e24d59f018a67c15d320.MainActivity
+Questionar.Mobile.MainActivity;md50dc1ffbaf085e24d59f018a67c15d320.MainActivity
+questionar.mobile.MainActivity;md50dc1ffbaf085e24d59f018a67c15d320.MainActivity
