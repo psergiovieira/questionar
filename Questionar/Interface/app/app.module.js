@@ -9,7 +9,7 @@ var app = angular.module('questionar.app',
    'questionar.private'
  ]);
 
-var urlApi = 'http://localhost/Questionar.WebApi/api/';
+var urlApi = 'http://192.168.2.27/api/';
 angular.module('questionar.app').run(Run);
 Run.$inject = ['$rootScope', '$http', '$location'];
 function Run($rootScope, $http, $location) {        
