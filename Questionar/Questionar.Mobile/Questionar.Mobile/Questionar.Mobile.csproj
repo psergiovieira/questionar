@@ -61,12 +61,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Course.cs" />
+    <Compile Include="Entities\MQuestion.cs" />
+    <Compile Include="Entities\Alternative.cs" />
+    <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="HomeActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchCourseActivity.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\HttpHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />

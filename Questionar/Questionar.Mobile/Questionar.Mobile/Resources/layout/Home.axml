@@ -20,24 +20,24 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/layoutPrincial">
+        android:layout_weight="1">
         <TextView
-            android:text="Bem vindo Aluno"
+            android:text="Bem vindo"
             android:textSize="16pt"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp" />
-        <TextView
-            android:text="Quanto é 1 + 1?"
-            android:textSize="14pt"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="15dp" />
+            <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:id="@+id/mainLayout"
+              android:layout_marginLeft="20dp"
+              android:layout_marginRight="20dp"
+              android:layout_marginTop="10dp"/>
+
     </LinearLayout>
 </LinearLayout>
