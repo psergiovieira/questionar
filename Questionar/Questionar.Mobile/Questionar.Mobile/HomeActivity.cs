@@ -20,6 +20,19 @@ namespace Questionar.Mobile
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.Home);
+            var layout = FindViewById<LinearLayout>(Resource.Id.layoutPrincial);
+
+            var radioGroup = new RadioGroup(this);
+            radioGroup.Orientation = Orientation.Vertical;
+            
+            var radio1 = new RadioButton(this);
+            radio1.Text = "OUTRAS CORES";
+
+            radioGroup.AddView(radio1);
+            layout.AddView(radioGroup);
+
+            //layout.AddView();
+
         }
     }
 }
