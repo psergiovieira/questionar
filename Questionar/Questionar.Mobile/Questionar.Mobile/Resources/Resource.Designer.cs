@@ -97,11 +97,11 @@ namespace Questionar.Mobile
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int dialogLayout = 2131099648;
-			
 			// aapt resource value: 0x7f060001
-			public const int dialogTitle = 2131099649;
+			public const int dialogLayout = 2131099649;
+			
+			// aapt resource value: 0x7f060000
+			public const int dialogTitle = 2131099648;
 			
 			// aapt resource value: 0x7f060004
 			public const int logIn = 2131099652;

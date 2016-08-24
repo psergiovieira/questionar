@@ -57,6 +57,7 @@ namespace Questionar.Mobile
                 if (response.IsSuccessStatusCode)
                 {
                     Android.Widget.Toast.MakeText(this, "Login com sucesso!", Android.Widget.ToastLength.Short).Show();
+                    StartActivity(typeof(HomeActivity));
                 }
                 else
                 {
